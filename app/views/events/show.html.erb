@@ -1,14 +1,21 @@
 <h1>Details</h1>
 <div>
+  <% @confirmed.each do |accept| %>
+  <%= accept.user.email %>
+  <% end %>
+</div>
+<div>
   <%= @event.title %>
 </div>
 <div>
   <h3>Suggestion</h3> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">+</button>
 </div>
 <div>
-  <% @event.suggestions.each do |sug| %>
-  <%= sug.title %>
-  <% end %>
+  <ul>
+    <% @event.suggestions.each do |suggestion| %>
+    <li><%= suggestion.title %></li>
+    <% end %>
+  </ul>
 </div>
 
 
@@ -29,10 +36,8 @@
         <%= r.button :submit, class:"btn btn-primary" %>
         <% end %>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
     </div>
   </div>
 </div>
+
+<%= console %>
