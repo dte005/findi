@@ -3,7 +3,7 @@ class CreateSuggestions < ActiveRecord::Migration[5.2]
     create_table :suggestions do |t|
       t.references :event, foreign_key: true
       t.string :title
-      t.boolean :selected
+      t.boolean :selected, default: false
       t.string :address
 
       t.timestamps

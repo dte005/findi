@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_06_03_195613) do
   create_table "suggestions", force: :cascade do |t|
     t.bigint "event_id"
     t.string "title"
-    t.boolean "selected"
+    t.boolean "selected", default: false
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

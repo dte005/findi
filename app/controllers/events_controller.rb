@@ -13,6 +13,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @suggestion = Suggestion.new()
   end
 
   private
