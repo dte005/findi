@@ -4,17 +4,25 @@ class EventsController < ApplicationController
 
   def index
     @events = policy_scope(Event)
+    @event = Event.new
   end
 
   def new
   end
 
   def create
+    @event = Event.new(event_params)
+    @event.user = current_user
+    if @event.save
+      redirect_to event_path(@event)
+    else
+
+    end
   end
 
   def show
     @suggestion = Suggestion.new()
-    @confirmed = @event.invites.where(accepted:true)
+    @accepted_invites = @event.invites.where(accepted: true)
   end
 
   private
