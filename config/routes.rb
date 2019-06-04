@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root to: 'events#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :user, only: %i[edit update]
-  resources :suggestions, only: %i[edit update show destroy]
-  resources :invites, only: %i[edit update show destroy]
+  resources :suggestions, only: %i[edit update destroy]
+  resources :invites, only: %i[edit update]
   resources :events do
     resources :suggestions, only: %i[create]
     resources :invites, only: %i[create]

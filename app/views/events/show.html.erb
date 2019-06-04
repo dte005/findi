@@ -1,33 +1,54 @@
-<h1>Details</h1>
-<%= link_to 'Chat do freizao', event_messages_path(@event) %>
-<div>
-  <% @confirmed.each do |accept| %>
-  <%= accept.user.email %>
-  <% end %>
-</div>
-<div>
-  <%= @event.title %>
-</div>
-<div>
-  <h3>Suggestion</h3> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#suggestionModal">+</button>
-</div>
-<div>
-  <ul>
-    <% @event.suggestions.each do |suggestion| %>
-    <li><%= suggestion.title %></li>
-    <% end %>
-  </ul>
-</div>
-<div>
-  <h3>Invites Friends</h3> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#friendsModal">+</button>
-</div>
-<div id="friends_added">
-  <ul>
-  <% @event.invites.each do |invite| %>
-    <li><%= invite.message %>
-      <%= invite.email %></li>
-  <% end %>
-  </ul>
+<div class="container-fluid">
+  <div class="row" style="height:80vh;">
+    <div class="col-md-8" style="border: 1px solid black; padding: 60px;">
+      <div class="d-flex flex-column">
+        <div>
+          <h1>Event Show</h1>
+        </div>
+        <div class="mb-2">
+          <article>Here you will find the details of your schedule event</article>
+        </div>
+        <div class="mb-2">
+          <% @confirmed.each do |accept| %>
+          <a href="#" data-toggle="modal" data-target="#friendsConfirmedModal"><%= accept.user.email %>...<a>
+          <% end %>
+        </div>
+        <div class="d-flex flex-row">
+          <div class="mr-3">
+            <i class="fas fa-calendar-alt"></i><%= @event.date%>
+          </div>
+          <div>
+            <i class="fas fa-map-marker-alt"></i><%= @event.title %>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-column">
+        <div>
+          <h3>Suggestion</h3> <i class="fas fa-plus-square" data-toggle="modal" data-target="#suggestionModal" style="color:orange; font-size:30px;"></i>
+        </div>
+        <div>
+          <ul>
+            <% @event.suggestions.each do |suggestion| %>
+            <li><%= suggestion.title %>
+
+            <%= link_to suggestion_path(suggestion.id), method: :delete, data: { confirm: "are you shure?" } do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </li>
+            <% end %>
+          </ul>
+        </div>
+        <div>
+          <h3>Invite Friends</h3> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#friendsModal">+</button>
+        </div>
+
+              <div class="row justify-content-end">
+                <%= link_to 'Chat do freizao', event_messages_path(@event), class:"btn btn-success" %>
+              </div>
+      </div>
+    </div>
+      <div class="col-md-4" style="border: 1px solid black;">Image</div>
+  </div>
 </div>
 
 <!-- Modal Suggestion -->
@@ -67,6 +88,36 @@
         <%= f.input :message, label: 'Message' %>
         <%= f.submit 'Invite', class:"btn btn-primary" %>
         <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Amigos confirmados -->
+<div class="modal fade" id="friendsConfirmedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmed Friends</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <% @event.invites.each do |invite| %>
+          <div>
+            <%= invite.message %>
+              <%= invite.email %>
+              <% if invite.accepted %>
+                <i class="fas fa-check" style="color:green;"></i>
+              <% else %>
+                <i class="fas fa-times" style="color:red;"></i>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
