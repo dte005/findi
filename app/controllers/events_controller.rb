@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :event_params, only: %i[create]
 
   def index
-    @events = Event.all
+    @events = policy_scope(Event)
   end
 
   def new
@@ -20,7 +20,7 @@ class EventsController < ApplicationController
   private
 
   def find_event
-    @event = Event.find(params[:id])
+    authorize @event = Event.find(params[:id])
   end
 
   def event_params
