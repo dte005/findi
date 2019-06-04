@@ -1,7 +1,7 @@
 class EventPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(user: user) #cada usuario ira ver seus eventos
+      scope.where(user: user) # cada usuario ira ver seus eventos
     end
   end
 

@@ -4,6 +4,7 @@ class EventsController < ApplicationController
 
   def index
     @events = policy_scope(Event)
+    # @events.append(policy_scope(Invite))
     @event = Event.new
   end
 
