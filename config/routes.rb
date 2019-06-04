@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :suggestions, only: %i[edit update show destroy]
   resources :invites, only: %i[edit update show destroy]
   resources :events do
-    resources :suggestions, only: %i[new create index]
-    resources :invites, only: %i[new create index]
+    resources :suggestions, only: %i[create]
+    resources :invites, only: %i[create]
     resources :messages, only: %i[new create index]
   end
 end
