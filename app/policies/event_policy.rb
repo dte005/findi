@@ -1,9 +1,14 @@
 class EventPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: user) #cada usuario ira ver seus eventos
     end
   end
+
+  def show?
+    record.user == user
+  end
+
   def create?
     user.present?
   end
