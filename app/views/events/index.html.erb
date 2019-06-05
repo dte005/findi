@@ -6,6 +6,11 @@
       <% @events.each do |event| %>
         <li><%= link_to event.title, event_path(event) %>
           <p><%= event.date %></p>
+          <% if event.user == current_user %>
+            <p>Owner</p>
+          <% else %>
+            <p>Invited</p>
+          <% end %>
         </li>
       <% end %>
       </ul>

@@ -6,6 +6,6 @@ class SuggestionPolicy < ApplicationPolicy
   end
 
   def destroy?
-    true
+    record.event.user == user
   end
 end

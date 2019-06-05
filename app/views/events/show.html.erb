@@ -1,7 +1,9 @@
 <div class="container-fluid">
   <div class="row" style="height:80vh;">
-    <div class="col-md-8" style="border: 1px solid black; padding: 80px;">
+    <div class="col-md-6" style="border: 1px solid black;">
       <div class="d-flex flex-column">
+        <div class="row" style="border:1px solid black; height: 40vh;">Div 1</div>
+        <div class="row" style="border:1px solid black; height: 40vh; padding:30px;">
         <div class="mb-4">
           <% @confirmed.each do |accept| %>
           <a href="#" data-toggle="modal" data-target="#friendsConfirmedModal"><%= accept.user.email %>...<a>
@@ -21,10 +23,14 @@
             <div class="mr-2"><i class="fas fa-map-marker-alt" style="color:#FF8246"></i></div><div style="color:#FF8246"><%= @event.title %></div>
           </div>
         </div>
-      </div>
+
       <div class="d-flex flex-column">
         <div class="d-flex flex-row mt-3">
+          <% if @event.user == current_user %>
           <div><i class="fas fa-plus-square mr-3" data-toggle="modal" data-target="#suggestionModal" style="color:#0028ff; font-size:20px;"></i></div><div><h5>Add suggestion</h5></div>
+          <% else %>
+          <div><h5>Added suggestion by owner</h5></div>
+          <% end %>
         </div>
         <div>
             <% @event.suggestions.each do |suggestion| %>
@@ -37,14 +43,15 @@
             <% end %>
         </div>
         <div class="d-flex flex-row mt-3">
+          <% if @event.user == current_user %>
           <i class="fas fa-plus-square mr-3" data-toggle="modal" data-target="#friendsModal" style="color:#0028ff; font-size:20px;"></i><h5>Add friends</h5>
-        </div>
-        <div class="d-flex flex-row justify-content-start mt-4">
-          <%= link_to 'Chat do freizao', event_messages_path(@event), class:"btn btn-success" %>
+          <% end %>
         </div>
       </div>
+      </div>
+      </div>
     </div>
-      <div class="col-md-4" style="border: 1px solid black;">Image</div>
+      <div class="col-md-6" style="border: 1px solid black;">Chat</div>
   </div>
 </div>
 
