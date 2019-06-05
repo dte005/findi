@@ -1,7 +1,7 @@
 class EventPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(user: user) # cada usuario ira ver seus eventos
+      user.owned_events + user.events
     end
   end
 
@@ -10,7 +10,8 @@ class EventPolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user
+    # Usuario tem que ser dono ou a lista de eventos do convidado tem que possuir o evento record
+    record.user == user || user.events.include?(record)
   end
 
   def create?
