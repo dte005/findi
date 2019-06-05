@@ -1,57 +1,61 @@
 <div class="container-fluid">
-  <div class="row" style="height:80vh;">
-    <div class="col-md-6" style="border: 1px solid black;">
+  <div class="row" style="height:85vh;">
+    <div class="col-md-7">
       <div class="d-flex flex-column">
-        <div class="row" style="border:1px solid black; height: 40vh;">Div 1</div>
-        <div class="row" style="border:1px solid black; height: 40vh; padding:30px;">
-        <div class="mb-4">
-          <% @confirmed.each do |accept| %>
-          <a href="#" data-toggle="modal" data-target="#friendsConfirmedModal"><%= accept.user.email %>...<a>
-          <% end %>
+        <div class="row" style="height: 55vh; background-image: url('<%= image_path 'show.jpg' %>'); background-size:cover; border-bottom:5px solid #5c005c;">
         </div>
-        <div>
-          <h1>Event Show</h1>
-        </div>
-        <div class="mb-2">
-          <article>Here you will find the details of your schedule event</article>
-        </div>
-        <div class="d-flex flex-row mt-5">
-          <div class="d-flex flex-row mr-3">
-            <div class="mr-2"><i class="fas fa-calendar-alt" style="color:#FF8246"></i></div><div style="color:#FF8246"><%= @event.date%></div>
-          </div>
-          <div class="d-flex flex-row mr-3">
-            <div class="mr-2"><i class="fas fa-map-marker-alt" style="color:#FF8246"></i></div><div style="color:#FF8246"><%= @event.title %></div>
-          </div>
-        </div>
-
-      <div class="d-flex flex-column">
-        <div class="d-flex flex-row mt-3">
-          <% if @event.user == current_user %>
-          <div><i class="fas fa-plus-square mr-3" data-toggle="modal" data-target="#suggestionModal" style="color:#0028ff; font-size:20px;"></i></div><div><h5>Add suggestion</h5></div>
-          <% else %>
-          <div><h5>Added suggestion by owner</h5></div>
-          <% end %>
-        </div>
-        <div>
-            <% @event.suggestions.each do |suggestion| %>
-              <div class="ml-4">
-                <%= suggestion.title %>
-                <%= link_to suggestion_path(suggestion.id), method: :delete, data: { confirm: "are you shure?" } do %>
-                <i class="fas fa-times" style="color:#FF8246;"></i>
-                <% end %>
+        <div class="row justify-content-around" style="height: 30vh; padding:30px; background: #eef0f2;">
+          <div class="d-flex flex-column">
+            <div>
+              <% @confirmed.each do |accept| %>
+              <a href="#" data-toggle="modal" data-target="#friendsConfirmedModal"><%= accept.user.email %>...<a>
+              <% end %>
+            </div>
+            <div>
+              <h1><%= @event.title %> Show</h1>
+            </div>
+            <div>
+              <article>Here you will find the details of your schedule event</article>
+            </div>
+            <div class="d-flex flex-row mt-5">
+              <div class="d-flex flex-row mr-3">
+                <div class="mr-2"><i class="fas fa-calendar-alt" style="color:#FF708A;"></i></div><div style="color:#FF708A;"><%= @event.date%></div>
               </div>
-            <% end %>
+              <div class="d-flex flex-row mr-3">
+                <div class="mr-2"><i class="fas fa-map-marker-alt" style="color:#FF708A;"></i></div><div style="color:#FF708A;"><%= @event.title %></div>
+              </div>
+            </div>
         </div>
-        <div class="d-flex flex-row mt-3">
-          <% if @event.user == current_user %>
-          <i class="fas fa-plus-square mr-3" data-toggle="modal" data-target="#friendsModal" style="color:#0028ff; font-size:20px;"></i><h5>Add friends</h5>
-          <% end %>
-        </div>
+        <div class="d-flex flex-column d-none d-sm-block" style="width: 20vw;">
+          <div class="d-flex flex-column">
+            <div class="d-flex flex-row mt-3">
+              <% if @event.user == current_user %>
+              <div><i class="fas fa-plus-square mr-3" data-toggle="modal" data-target="#suggestionModal" style="color:#5c005c; font-size:20px;"></i></div><div><h5>Add suggestion</h5></div>
+              <% else %>
+              <div><h5>Added suggestion by owner</h5></div>
+              <% end %>
+            </div>
+            <div>
+                <% @event.suggestions.each do |suggestion| %>
+                  <div class="ml-4">
+                    <%= suggestion.title %>
+                    <%= link_to suggestion_path(suggestion.id), method: :delete, data: { confirm: "are you shure?" } do %>
+                    <i class="fas fa-times" style="color:#FF708A;"></i>
+                    <% end %>
+                  </div>
+                <% end %>
+            </div>
+            <div class="d-flex flex-row mt-3">
+              <% if @event.user == current_user %>
+              <i class="fas fa-plus-square mr-3" data-toggle="modal" data-target="#friendsModal" style="color:#5c005c; font-size:20px;"></i><h5>Add friends</h5>
+              <% end %>
+            </div>
+          </div>
       </div>
       </div>
       </div>
     </div>
-      <div class="col-md-6" style="border: 1px solid black;">
+      <div class="col-md-5 p-0" >
         <%= render 'chat'%>
       </div>
   </div>

@@ -1,26 +1,15 @@
-<div class="container-fluid" style="border: 1px solid black; height: 85vh;">
-  <div class="row" style="border: 1px solid black;">
-    <div class="col-md-7 col-sm-12 col-12" style="border: 1px solid black; height: 85vh;">
+<div class="container-fluid" style="height: 85vh;">
+  <div class="row">
+    <div class="col-md-7 col-sm-12 col-12" style="height: 85vh;">
       <div class="container mt-3 d-flex flex-column justify-content-center align-items-center" style="height: 40vh;">
       <h1>Create an event</h1>
         <!-- FORM BEGIN -->
         <div class="form-event" style="width: 20rem;">
         <%= simple_form_for([@event], remote: true,  defaults: { wrapper_html: { class: 'form-event' } } ) do |f| %>
-          <!-- <div class="form-row"> -->
-            <!-- <div class="form-group col-md-8" style="margin-bottom: 1px;"> -->
-              <%= f.input :title, label: false, placeholder: "Title"  %>
-              <%= f.input :description, label: false, placeholder: "Description"  %>
-            <!-- </div> -->
-          <!-- </div> -->
-
-          <!-- <div class="form-row"> -->
-            <!-- <div class="form-group col-md-5"> -->
-              <%= f.input :date, as: :string, placeholder: "Choose a day on the calendar", disabled: true, label: false %>
-            <!-- </div> -->
-            <!-- <div class="form-group col-md-3"> -->
-              <%= f.input :date, as: :time, label: false, input_html: { style: ""} %>
-            <!-- </div> -->
-          <!-- </div> -->
+          <%= f.input :title, label: false, placeholder: "Title"  %>
+          <%= f.input :description, label: false, placeholder: "Description"  %>
+          <%= f.input :date, as: :string, placeholder: "Choose a day on the calendar", disabled: true, label: false %>
+          <%= f.input :date, as: :time, label: false, input_html: { style: ""} %>
         <% end %>
         </div>
         <!-- FORM END -->
@@ -33,7 +22,6 @@
           <!-- <a type="button" data-toggle="modal" data-target="#exampleModal"> -->
             <span id="daytext"><%= date.day %></span>
             <%= hidden_field_tag('calendar-datetime', date) %>
-          <!-- </a> -->
           <% events.each do |event| %>
           <% end %>
         </div>
@@ -42,10 +30,10 @@
       <!-- CALENDAR END -->
     </div>
 
-    <div class="col-md-5 col-sm-12 col-12" style="border: 1px solid black;">
+    <div class="col-md-5 col-sm-12 col-12">
     <div class="row" style="height:80vh;">Image</div>
-      <div class="row justify-content-center align-items-end" style="border: 1px solid red; height:5vh;">
-        <div class="col-md-6" style="border: 1px solid black; text-align:center;">
+      <div class="row justify-content-center align-items-end" style="height:5vh;">
+        <div class="col-md-6" style="text-align:center;">
           <% if policy(Event).create? %>
             <%= link_to 'Create Event', new_event_path, class:"btn btn-primary"%>
           <% end %>
@@ -55,13 +43,13 @@
 
 
 
-<div class="container-fluid" style="border:1px solid black; height: 50vh;">
-  <div class="row" style="border: 1px solid black;">
+<div class="container-fluid" style="height: 50vh;">
+  <div class="row">
   </div>
 </div>
 
 <%= javascript_pack_tag 'datepicker.js' %>
-    <div style="border: 1px solid black; height: 50vh;">
+    <div style="height: 50vh;">
       <ul>
       <% @events.each do |event| %>
         <li><%= link_to event.title, event_path(event) %>
