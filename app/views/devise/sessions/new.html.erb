@@ -9,7 +9,7 @@
 
         <!-- <img src="../../assets/images/avatar.jpg" alt="avatar" class="avatar"> -->
 
-    <div class="col-4" style=""> <!-- ##abertura do login -->
+    <div class="col-4" style="width:40%; height:40%;"> <!-- ##abertura do login -->
     <%= image_tag("avatar.jpg", id: "avatar2") %>
       <h2 style="text-align: center;">Log in</h2>
 
@@ -25,14 +25,14 @@
                       input_html: { autocomplete: "current-password" } %>
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
 
+        <div class="form-actions " style=" "  >
+          <%= f.button :submit, "Log in", class: "btn btn-primary w-100 " %>
+        <% end %>
+        </div>
         </div>
       </div>
-      <div class="row" style="justify-content:center;" >
-        <div class="form-actions " >
-          <p>Already have an account? <%= f.button :submit, "Log in", class: "btn btn-primary" %> </p>
-        </div>
-      <% end %>
-      </div>
+
+
 
       <div class="row" style="justify-content: center;">
 
