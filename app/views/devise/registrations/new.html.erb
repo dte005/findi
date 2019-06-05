@@ -2,7 +2,7 @@
 
 
   <div class="row">
-    <div id="findiBox" class="col-8 d-none d-sm-block" style="display:flex; align-items: center; justify-content: center; height:100vh;"> <!-- ##abertura da parte do logo findi -->
+    <div id="findiBox" class="col-sm-8 d-none d-sm-block" style="display:flex; align-items: center; justify-content: center; height:100vh;"> <!-- ##abertura da parte do logo findi -->
       <div class="findi-logo" style="border: solid; margin-top: -30%;"> <!-- ## abertura da div do logo do findi -->
           <h1 style="text-align: center;">Findi</h1>
           <p style="text-align: center; margin-top: -15px;">Enjoy your life !</p>
@@ -11,7 +11,7 @@
 
         <!-- <img src="../../assets/images/avatar.jpg" alt="avatar" class="avatar"> -->
 
-    <div class="col-4" style="width:40%; height:40%;"> <!-- ##abertura do login -->
+    <div class="col-12 col-sm-4" style="width:40%; height:40%;"> <!-- ##abertura do login -->
     <%= image_tag("avatar.jpg", id: "avatar2") %>
       <h2 style="text-align: center;">Sign Up</h2>
 
@@ -48,5 +48,6 @@
 
 
     </div>  <!-- ##fechamento da parte do login  -->
+            <%= render "devise/shared/links" %>
 
   </div>
