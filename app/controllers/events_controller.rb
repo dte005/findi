@@ -13,6 +13,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @invite = Invite.new()
     @suggestion = Suggestion.new()
     @confirmed = @event.invites.where(accepted:true)
   end
