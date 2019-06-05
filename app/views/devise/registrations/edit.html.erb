@@ -41,9 +41,7 @@
           <%= f.button :submit, "Update", class: "btn btn-primary w-100 " %>
         <% end %>
         </div>
-          <h3 style="text-align: center; margin-top: 5%;">Cancel my account</h3>
-
-          <p style="text-align: center;">Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+          <p style="text-align: center;">Not happy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
           <%= link_to "Return", :back, class: "btn btn-primary" %>
         </div>

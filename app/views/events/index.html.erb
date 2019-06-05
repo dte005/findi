@@ -2,6 +2,12 @@
 <div class="container-fluid" style="border:1px solid black; height: 50vh;">
   <div class="row" style="boder: 1px solid black;">
     <div class="col-md-6 col-sm-12 col-12" style="border: 1px solid black; height: 50vh;">
+      <h1>Your Best Value Proposition</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <input type = "text" id = "eventName" value = "Nome do Evento" /></p>
+      <input type = "text" id = "date" value = "Date" />
+      <input type = "text" id = "eventTime" value = "Time of the Event" />
+
       <ul>
       <% @events.each do |event| %>
         <li><%= link_to event.title, event_path(event) %>
@@ -10,9 +16,18 @@
       <% end %>
       </ul>
     </div>
-    <div class="col-md-6 col-sm-12 col-12" style="border: 1px solid black;">
-      <div class="row" style="height:45vh;">Image</div>
-      <div class="row justify-content-center align-items-end" style="border: 1px solid red; height:5vh;">
+    <div class="col-md-6 col-sm-12 col-12" style="border: 1px solid black; display: flex; flex-direction: column; text-align: center; justify-content:space-around;">
+        <div class="row" style=" display: flex; flex-direction: column; text-align: center; justify-content:space-around;"> <!-- ## icone da camera e upload image -->
+          <i class="fas fa-camera"></i>
+          <div class="container">
+          <label for="fileInput" class="btn btn-secondary">
+           <p style="height:50px; width:100px;">Upload a picture</p>
+          </label>
+          <input type="file" style="display: none"  id="fileInput" />
+          </div> <!-- ##fechamento da div do container -->
+        </div> <!-- ## fechamento da div -->
+
+      <div class="row justify-content-center" style="border: 1px solid red; height:5vh;">
         <div class="col-md-6" style="border: 1px solid black; text-align:center;">
           <% if policy(Event).create? %>
             <%= link_to 'Create Event', new_event_path, class:"btn btn-primary"%>
