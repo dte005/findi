@@ -1,10 +1,10 @@
 class EventsController < ApplicationController
   before_action :find_event, only: %i[show]
   before_action :event_params, only: %i[create]
+  # before_action :find_invited, only: %i[index]
 
   def index
     @events = policy_scope(Event)
-    # @events.append(policy_scope(Invite))
     @event = Event.new
   end
 
@@ -24,13 +24,19 @@ class EventsController < ApplicationController
   def show
     @invite = Invite.new()
     @suggestion = Suggestion.new()
-    @accepted_invites = @event.invites.where(accepted: true)
+    @confirmed = @event.invites.where(accepted: true)
   end
 
   private
 
   def find_event
-    authorize @event = Event.find(params[:id])
+    @event = Event.find(params[:id])
+    authorize @event
+  end
+
+  def find_invited
+    @invites = current_user.invites
+    authorize @invites
   end
 
   def event_params

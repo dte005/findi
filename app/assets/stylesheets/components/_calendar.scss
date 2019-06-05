@@ -1,14 +1,15 @@
-.simple-calendar .day {
-  height: 30px;
-width: 20px;
-  .active {
-    background-color: #D11010;
-  }
-}
-
 .simple-calendar {
+  .day {
+  height: 30px;
+  width: 20px;
+    &:hover {
+      border: green;
+      border-style: inset;
+    }
+  }
+
   .has-events {
-    background-color: #D11010;
+    background-color: #60C2D5;
   }
 }
 
