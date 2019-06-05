@@ -1,0 +1,18 @@
+.simple-calendar {
+  .day {
+  height: 30px;
+  width: 20px;
+    &:hover {
+      border: green;
+      border-style: inset;
+    }
+  }
+
+  .has-events {
+    background-color: #60C2D5;
+  }
+}
+
+#daytext {
+  font-size: 14px;
+}
