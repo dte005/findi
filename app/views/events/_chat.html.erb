@@ -1,14 +1,6 @@
 <div style="height: 85vh; background:#f8eee7;">
   <div class="row" style="height:85vh; margin: 0;">
     <div class="col-12 d-flex flex-column justify-content-between chat-groups" style="height: 85vh;">
-      <div class="d-flex flex-row ml-2 mt-2">
-        <div>
-          <p class= "chat-contact"><strong>Fiti Admin</strong></p>
-          <div>
-            <p class="box">Welcome to your event chat</p>
-          </div>
-        </div>
-      </div>
       <div class="d-flex flex-column flex-grow-1 ml-2 mt-2" style="overflow-y: auto; overflow-x: hidden;">
         <% @messages.each do |message|%>
         <div>
@@ -34,9 +26,19 @@
           </div>
         <% end %>
       </div>
-      <div class="row chat-input mb-2 ml-2 mr-2 justify-content-left" style="height:5vh;">
-        Mother fucker
+      <div>
+      <%= simple_form_for [@event, @message], wrapper: :inline_form, html: { class: "form-inline" } do |f|%>
+        <div class="flex-grow-1">
+        <%= f.input :content, label: false, input_html: { class: "ml-2 mb-2 mr-sm-2 w-100" }%>
+        </div>
+        <%= f.button :button do %>
+          <i class="fas fa-paper-plane" style="color:#5c005c; font-size:30px;"></i>
+        <% end %>
+      <% end %>
       </div>
+      <%# <form action="">
+      <input type="text" class="chat-input mb-2 ml-2 mr-2">
+      </form> %>
     </div>
   </div>
 </div>
