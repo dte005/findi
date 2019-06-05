@@ -24,6 +24,7 @@ class EventsController < ApplicationController
     @invite = Invite.new()
     @suggestion = Suggestion.new()
     @confirmed = @event.invites.where(accepted: true)
+    @messages = []
   end
 
   private
