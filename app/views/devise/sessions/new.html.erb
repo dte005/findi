@@ -1,20 +1,46 @@
-<h2>Log in</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
+  <div class="row">
+    <div id="findiBox" class="col-8 d-none d-sm-block" style="display:flex; align-items: center; justify-content: center; height:100vh;"> <!-- ##abertura da parte do logo findi -->
+      <div class="findi-logo" style="border: solid; margin-top: -30%;"> <!-- ## abertura da div do logo do findi -->
+          <h1 style="text-align: center;">Findi</h1>
+          <p style="text-align: center; margin-top: -15px;">Enjoy your life !</p>
+      </div> <!-- ##fechamento da div do logo -->
+    </div>  <!-- ##fechamento do logotipo -->
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
+        <!-- <img src="../../assets/images/avatar.jpg" alt="avatar" class="avatar"> -->
 
-<%= render "devise/shared/links" %>
+    <div class="col-4" style="width:40%; height:40%;"> <!-- ##abertura do login -->
+    <%= image_tag("avatar.jpg", id: "avatar2") %>
+      <h2 style="text-align: center;">Log in</h2>
+
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="row" style="justify-content:center;">
+        <div class="form-inputs" id="signup-form" style="justify-content:center;">
+          <%= f.input :email,
+                      required: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" } %>
+          <%= f.input :password,
+                      required: false,
+                      input_html: { autocomplete: "current-password" } %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+
+        <div class="form-actions " style=" "  >
+          <%= f.button :submit, "Log in", class: "btn btn-primary w-100 " %>
+        <% end %>
+        </div>
+        </div>
+      </div>
+
+
+
+      <div class="row" style="justify-content: center;">
+
+        <%= render "devise/shared/links" ,class: "btn btn-primary"%>
+      </div>
+
+
+    </div>  <!-- ##fechamento da parte do login  -->
+
+  </div> <!-- ##fechamento do row -->
+<!-- ##fechamento do container -->
