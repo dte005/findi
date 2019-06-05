@@ -1,7 +1,7 @@
 <div style="height: 85vh; background:#f8eee7;">
   <div class="row" style="height:85vh; margin: 0;">
     <div class="col-12 d-flex flex-column justify-content-between chat-groups" style="height: 85vh;">
-      <div class="row ml-2 mt-2">
+      <div class="d-flex flex-row ml-2 mt-2">
         <div>
           <p class= "chat-contact"><strong>Fiti Admin</strong></p>
           <div>
@@ -9,25 +9,33 @@
           </div>
         </div>
       </div>
+      <div class="d-flex flex-column flex-grow-1 ml-2 mt-2" style="overflow-y: auto; overflow-x: hidden;">
         <% @messages.each do |message|%>
-          <% if message.event.user == current_user %>
+        <div>
+          <% if message.user == current_user %>
           <div class="row ml-2 mt-2">
             <div>
-              <p class= "chat-contact"><strong><%= message.event.user.email %></strong></p>
+              <p class= "chat-contact"><strong><%= message.user.email %></strong></p>
               <div>
                 <p class="box"><%= message.content %></p>
               </div>
             </div>
           </div>
           <% else %>
-            <div class="row">
+            <div class="row mr-2 mt-2 justify-content-end">
+              <div style="text-align: right;">
+              <p><strong><%= message.user.email %></strong></p>
+              <div>
               <p class="box-user"><%= message.content %></p>
+              </div>
+              </div>
             </div>
           <% end %>
+          </div>
         <% end %>
-      <div class="row chat-input mb-2 ml-2 mr-2" style="height:5vh;">
-        <div class="col-md-6" style="text-align:center;">
-        </div>
+      </div>
+      <div class="row chat-input mb-2 ml-2 mr-2 justify-content-left" style="height:5vh;">
+        Mother fucker
       </div>
     </div>
   </div>
