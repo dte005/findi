@@ -1,0 +1,64 @@
+<div class="container-fluid" style="height: 50vh;">
+  <div class="row">
+    <div class="col-md-4 col-sm-12 col-12 p-0 chat-groups">
+      <div class="card-chat ">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+          <div class="card-chat-infos">
+              <h2>Title Group</h2>
+              <p>Evento</p>
+          </div>
+      </div>
+      <div class="card-chat ">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+          <div class="card-chat-infos">
+              <h2>Title Group</h2>
+              <p>Evento</p>
+          </div>
+      </div>
+      <div class="card-chat ">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+          <div class="card-chat-infos">
+              <h2>Title Group</h2>
+              <p>Evento</p>
+          </div>
+      </div>
+      <div class="card-chat ">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+          <div class="card-chat-infos">
+              <h2>Title Group</h2>
+              <p>Evento</p>
+          </div>
+      </div>
+      <div class="card-chat ">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+          <div class="card-chat-infos">
+              <h2>Title Group</h2>
+              <p>Evento</p>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-8 col-sm-12 col-12 d-flex flex-column justify-content-between chat-groups" style="height: 50vh;">
+
+        <% @messages.each do |message|%>
+          <% if message.event.user == current_user %>
+          <div class="row ml-2 mt-2">
+            <div>
+              <p class= "chat-contact"><strong><%= message.event.user.email %></strong></p>
+              <div>
+                <p class="box"><%= message.content %></p>
+              </div>
+            </div>
+          </div>
+          <% else %>
+            <div class="row">
+              <p class="box-user"><%= message.content %></p>
+            </div>
+          <% end %>
+        <% end %>
+      <div class="row chat-input mb-2 ml-2 mr-2" style="height:5vh;">
+        <div class="col-md-6" style="text-align:center;">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
