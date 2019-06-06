@@ -1,7 +1,7 @@
 .simple-calendar {
 
   th {
-    color: #5B5B82;
+    color: #5C005C;
   }
 
   .day {
@@ -13,12 +13,21 @@
       border: #5B5B82;
       border-style: inset;
     }
+
+  }
+
+  .today {
+    background-color: rgba(#5C005C, 0.3);
+    color: #5C005C;
   }
 
   .has-events {
-    background-color: #73C5D9;
+    background-color: #CE6A85;
+    color: #EEF0F2;
   }
 }
+
+
 
 #daytext {
   font-size: 14px;
@@ -35,6 +44,11 @@
   min-height: 300px;
 
   #event-item {
+    color: #666666;
+  }
+
+  .close {
+    color: #5C005C;
   }
 
   #event-details-link {

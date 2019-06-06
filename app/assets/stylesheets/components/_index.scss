@@ -11,7 +11,7 @@
   // margin-top: 20px;
   h1 {
     font-size: 2rem;
-    text-align: center;
+    color: #666666;
   }
 }
 
@@ -21,11 +21,18 @@
   justify-content: space-around;
 }
 
-// #inputbox{
-//   background-color: blue;
-//   height: 40px;
-// }
+#inputbox{
+  width: 130px;
+  background-color: rgba(#5C005C, 0.8);
+  border-radius: 3px;
+  height: 40px;
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: rgba(#5C005C, 1);
+  }
+}
 
-// #event_photo {
-//   opacity: 0;
-// }
+#event_photo {
+  opacity: 0;
+}

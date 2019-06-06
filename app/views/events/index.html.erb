@@ -10,8 +10,14 @@
             <%= simple_form_for([@event], remote: true,  defaults: { wrapper_html: { class: 'form-event' } } ) do |f| %>
               <%= f.input :title, label: false, placeholder: "Title"  %>
               <%= f.input :description, label: false, placeholder: "Description"  %>
-              <%= f.input :date, as: :string, placeholder: "Click on a day on the calendar", disabled: true, label: false %>
-              <%= f.input :date, as: :time, label: false, input_html: { style: ""} %>
+              <div class="row" style="width: 20rem; margin-left: 0px;">
+                <div class="col-6 p-0">
+                  <%= f.input :date, as: :string, placeholder: "Click on a day on the calendar", disabled: true, label: false %>
+                </div>
+                <div class="col-6 p-0">
+                  <%= f.input :date, as: :time, label: false, input_html: { style: ""} %>
+                </div>
+              </div>
               <div id="inputbox">
                 <%= f.input :photo, label: false, input_html: { style: "" } %>
                 <%= f.input :photo_cache, as: :hidden %>
@@ -40,9 +46,9 @@
           <%= render 'modal', events: events, date: date %>
         <% end %>
       </div> <!-- CALENDAR END -->
-      <div style="text-align:center;padding: 20px;">
+      <div style="text-align:center; padding: 20px;">
         <% if policy(Event).create? %>
-          <%= link_to 'Create Event', new_event_path, class:"btn btn-primary"%>
+          <%= link_to 'Create Event', new_event_path, class:"btn btn-primary w-50"%>
         <% end %>
       </div>
     </div> <!-- RIGHT CONTAINER END -->

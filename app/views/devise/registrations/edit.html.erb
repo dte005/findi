@@ -9,9 +9,11 @@
         <!-- <img src="../../assets/images/avatar.jpg" alt="avatar" class="avatar"> -->
 
     <div class="col-12 col-sm-4" style="width:40%; height:40%;"> <!-- ##abertura do login -->
-    <%= image_tag("avatar.jpg", id: "avatar2") %>
+      <div class="d-flex justify-content-center">
+        <%= image_tag("avatar.jpg", id: "avatar2") %>
+      </div>
 
-      <h2 style="text-align: center;">Edit <%= resource_name.to_s.humanize %></h2>
+      <h2 style="text-align: center;">Edit Profile</h2>
 
        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
        <%= f.error_notification %>
