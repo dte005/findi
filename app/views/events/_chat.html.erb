@@ -5,23 +5,21 @@
         <% @messages.each do |message|%>
         <div>
           <% if message.user == current_user %>
-          <div class="row ml-2 mt-2">
-            <div>
-              <p class= "chat-contact"><strong><%= message.user.email %></strong></p>
-              <div>
-                <p class="box"><%= message.content %></p>
+          <div class="d-flex flex-column mr-2 mt-2 align-items-end" style="text-align-right;">
+              <div style="padding: 10px 10px 1px 10px;"></div>
+              <div style="padding:10px;">
+                <span style="background:#f8c48e  ; padding:10px; border:1px solid lightgrey; border-radius:10px;"><%= message.content %></span>
               </div>
-            </div>
           </div>
           <% else %>
-            <div class="row mr-2 mt-2 justify-content-end">
-              <div style="text-align: right;">
-              <p><strong><%= message.user.email %></strong></p>
-              <div>
-              <p class="box-user"><%= message.content %></p>
-              </div>
-              </div>
+          <div class="d-flex flex-column">
+            <div style="padding: 10px 10px 1px 10px;">
+              <strong style="color:#5c005c; font-size:12px;"><%= message.user.email %></strong>
             </div>
+            <div style="padding:10px;">
+              <span style="background:white; padding:10px; border:1px solid lightgrey; border-radius:10px;"><%= message.content %></span>
+            </div>
+          </div>
           <% end %>
           </div>
         <% end %>
