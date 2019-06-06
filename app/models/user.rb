@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :owned_events, class_name: "Event"
   has_many :events, through: :invites
   has_many :messages
+
+  mount_uploader :photo, PhotoUploader
 end
