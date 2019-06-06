@@ -1,18 +1,49 @@
 .simple-calendar {
+  font: Helvetica Neue;
+
+  th {
+    color: #5B5B82;
+  }
+
   .day {
-  height: 30px;
-  width: 20px;
+  height: 35px;
+  width: -1px;
+  max-width: 44px;
+  color: #666666;
     &:hover {
-      border: green;
+      border: #5B5B82;
       border-style: inset;
     }
   }
 
   .has-events {
-    background-color: #60C2D5;
+    background-color: #73C5D9;
   }
 }
 
 #daytext {
   font-size: 14px;
+}
+
+#dayEventsModalContent {
+  font: Helvetica Neue;
+
+  h5 {
+    color: #666666;
+    text-align: center;
+  }
+  background-color: #EEF0F2;
+  min-height: 300px;
+
+  #event-item {
+  }
+
+  #event-details-link {
+    color: #CE6A85;
+    text-decoration: none;
+    &:hover {
+    color: #5C005C;
+      transition: 0.2s;
+    }
+  }
 }
