@@ -6,9 +6,10 @@ class InvitesController < ApplicationController
     @invite = Invite.new(invite_params)
     @invite.event = @event
     if @invite.save
+      mail = InviteMailer.with(email: @invite.email, message: @invite.message).invitation
+      mail.deliver_now
       redirect_to event_path(@event)
     else
-      raise
       redirect_to events_path
     end
   end

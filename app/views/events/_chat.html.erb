@@ -1,7 +1,7 @@
 <div style="height: 85vh; background:#f8eee7;">
   <div class="row" style="height:85vh; margin: 0;">
     <div class="col-12 d-flex flex-column justify-content-between chat-groups" style="height: 85vh;">
-      <div class="d-flex flex-column flex-grow-1 ml-2 mt-2" style="overflow-y: auto; overflow-x: hidden;">
+      <div class="d-flex flex-column flex-grow-1 ml-2 mt-2" style="overflow-y: auto; overflow-x: hidden;" id="chat-content">
         <% @messages.each do |message|%>
         <div>
           <% if message.user == current_user %>
@@ -27,7 +27,7 @@
       <div style="background:#EEF0F2; padding:10px;">
       <%= simple_form_for [@event, @message], wrapper: :inline_form, html: { class: "form-inline" } do |f|%>
         <div class="flex-grow-1">
-        <%= f.input :content, label: false, input_html: { class: "ml-1 mb-1 mt-1 mr-sm-1 w-100" }%>
+        <%= f.input :content, label: false, input_html: { class: "ml-1 mb-1 mt-1 mr-sm-1 w-100", id:"input-chat" }%>
         </div>
         <%= f.button :button do %>
           <i class="fas fa-paper-plane" style="color:#5c005c; font-size:30px;"></i>
