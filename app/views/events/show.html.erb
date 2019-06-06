@@ -3,16 +3,16 @@
     <div class="col-md-7">
       <div class="d-flex flex-column">
         <div class="row" style="height: 55vh; background-image: url('<%= image_path 'show.jpg' %>'); background-size:cover; border-bottom:5px solid #5c005c;">
+          <div class="d-flex flex-row justify-content-center position-absolute title-show-banner-content">
+            <h1><%= @event.title %> Show</h1>
+          </div>
         </div>
-        <div class="row justify-content-around" style="height: 30vh; padding:30px; background: #eef0f2;">
+        <div class="row justify-content-around details-show-content">
           <div class="d-flex flex-column">
             <div>
               <% @confirmed.each do |accept| %>
               <a href="#" data-toggle="modal" data-target="#friendsConfirmedModal"><%= accept.user.email %>...<a>
               <% end %>
-            </div>
-            <div>
-              <h1><%= @event.title %> Show</h1>
             </div>
             <div>
               <article>Here you will find the details of your schedule event</article>
@@ -55,7 +55,7 @@
       </div>
       </div>
     </div>
-      <div class="col-md-5 p-0" >
+      <div class="col-md-5 p-0">
         <%= render 'chat'%>
       </div>
   </div>
