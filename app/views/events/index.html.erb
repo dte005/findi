@@ -1,8 +1,9 @@
 <div class="container-fluid" style="height: 85vh;">
   <div class="row">
     <div class="col-md-7 col-sm-12 col-12" style="height: 85vh;">
-      <div class="container mt-3 d-flex flex-column justify-content-center align-items-center" style="height: 40vh;">
+      <div class="container mt-3 d-flex flex-column justify-content-center align-items-center" style="height: 40vh;" id="new-event-container">
       <h1 style="margin-bottom: 10px;">Create an event</h1>
+
         <!-- FORM BEGIN -->
         <div class="form-event" style="width: 20rem;">
         <%= simple_form_for([@event], remote: true,  defaults: { wrapper_html: { class: 'form-event' } } ) do |f| %>
@@ -10,6 +11,8 @@
           <%= f.input :description, label: false, placeholder: "Description"  %>
           <%= f.input :date, as: :string, placeholder: "Click on a day on the calendar", disabled: true, label: false %>
           <%= f.input :date, as: :time, label: false, input_html: { style: ""} %>
+          <%= f.input :photo, label: "Upload a photo", input_html: { style: "" } %>
+          <%= f.input :photo_cache, as: :hidden %>
         <% end %>
         </div>
         <!-- FORM END -->
