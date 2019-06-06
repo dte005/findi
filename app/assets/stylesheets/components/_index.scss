@@ -6,8 +6,26 @@
 @import "calendar";
 @import "card";
 
-.new-event-container {
-  margin-top: 20px;
+#container-with-title {
+  // margin-bottom: 20px;
+  // margin-top: 20px;
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
 }
 
+#right-container {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-around;
+}
 
+// #inputbox{
+//   background-color: blue;
+//   height: 40px;
+// }
+
+// #event_photo {
+//   opacity: 0;
+// }
