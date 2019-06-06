@@ -25,6 +25,7 @@ class EventsController < ApplicationController
     @suggestion = Suggestion.new()
     @message = Message.new()
     @confirmed = @event.invites.where(accepted: true)
+    @invited = @event.invites.all
     @messages = Message.where(event_id: @event)
   end
 
