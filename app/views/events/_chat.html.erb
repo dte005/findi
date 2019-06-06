@@ -26,10 +26,10 @@
           </div>
         <% end %>
       </div>
-      <div>
+      <div style="background:#EEF0F2; padding:10px;">
       <%= simple_form_for [@event, @message], wrapper: :inline_form, html: { class: "form-inline" } do |f|%>
         <div class="flex-grow-1">
-        <%= f.input :content, label: false, input_html: { class: "ml-2 mb-2 mr-sm-2 w-100" }%>
+        <%= f.input :content, label: false, input_html: { class: "ml-1 mb-1 mt-1 mr-sm-1 w-100" }%>
         </div>
         <%= f.button :button do %>
           <i class="fas fa-paper-plane" style="color:#5c005c; font-size:30px;"></i>
