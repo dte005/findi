@@ -1,16 +1,22 @@
 .title-show-banner-content{
   background:#ce6a85;
-  margin-top: 430px;
-  margin-left: 85px;
-  padding: 2px 40px;
+  left: 5vh;
+  bottom: 0px;
+  padding: 2px 20px;
+  width: 30vw;
   color:white;
   z-index: 2;
+  position: absolute;
+  opacity: 0.8;
 }
 
 .details-show-content{
   height: 30vh;
-  padding:30px;
-  background: #eef0f2;
-  box-shadow: 4px 0px 12px 1px rgba(150, 150, 150, 0.2);
+  padding:10px;
+  background: #EEF0F2;
   z-index: 1;
+}
+
+.text-suggestion{
+  color:#4d4d4d;
 }
