@@ -39,10 +39,6 @@ class EventsController < ApplicationController
     @messages = Message.where(event_id: @event)
   end
 
-  def get_events_on_day
-    @day_events = Event.where(date: params[:date])
-  end
-
   private
 
   def find_event
