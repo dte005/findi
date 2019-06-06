@@ -8,4 +8,8 @@ class SuggestionPolicy < ApplicationPolicy
   def destroy?
     record.event.user == user
   end
+
+  def update?
+    record.event.user == user
+  end
 end
