@@ -1,7 +1,6 @@
 class SuggestionsController < ApplicationController
-  before_action :suggestions_params, only: [:create]
   before_action :find_event, only: [:create]
-  before_action :find_suggestion, only: [:destroy]
+  before_action :find_suggestion, only: [:destroy, :update]
 
   def create
     @suggestion = Suggestion.new(suggestions_params)
@@ -14,6 +13,17 @@ class SuggestionsController < ApplicationController
   def destroy
     @event = @suggestion.event_id
     @suggestion.destroy
+    redirect_to event_path(@event)
+  end
+
+  def update
+    @event = @suggestion.event
+    @event.suggestions.each do |suggest|
+      suggest.selected = false
+      suggest.save
+    end
+    @suggestion.selected = true
+    @suggestion.save
     redirect_to event_path(@event)
   end
 
