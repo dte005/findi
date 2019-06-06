@@ -129,10 +129,10 @@
           <% @event.invites.each do |invite| %>
           <div style="border-bottom:1px solid lightgrey;">
             <div>
-            msg: <%= invite.message %>
+            <strong>msg:</strong> <%= invite.message %>
             </div>
             <div>
-            email:  <%= invite.email %>
+            <strong>email:</strong>  <%= invite.email %>
             <% if invite.accepted %>
                 <i class="fas fa-check" style="color:green;"></i>
               <% else %>
