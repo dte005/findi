@@ -5,6 +5,15 @@ class EventsController < ApplicationController
   def index
     @events = policy_scope(Event)
     @event = Event.new
+
+    respond_to do |format|
+      format.html { }
+      format.js do
+        beginning = Time.parse(params[:date]).beginning_of_day
+        ending = Time.parse(params[:date]).end_of_day
+        @day_events = @events.where("date BETWEEN '#{beginning}' AND '#{ending}'")
+      end
+    end
   end
 
   def new
@@ -25,6 +34,10 @@ class EventsController < ApplicationController
     @suggestion = Suggestion.new()
     @confirmed = @event.invites.where(accepted: true)
     @messages = []
+  end
+
+  def get_events_on_day
+    @day_events = Event.where(date: params[:date])
   end
 
   private
