@@ -1,21 +1,31 @@
-<div class="container d-flex justify-content-center" style="">
-  <div style="padding: 10px; ">
-    <h2 style=" text-align: center;">Reset Password</h2>
+<style>
+  body{
+    background-image: url(<%= image_path "forget.jpg" %>);
+  }
+</style>
 
-    <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-      <%= f.error_notification %>
+<div class="box">
 
-      <div class="form-inputs">
-        <%= f.input :email,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "email" } %>
-      </div>
+  <div id="container" class="container d-flex justify-content-center" style=" ">
+    <div style="padding: 10px; ">
+      <h2 style=" text-align: center;">Reset Password</h2>
 
-      <div class="form-actions">
-        <%= f.button :submit, "Send me reset password instructions", class: "btn btn-primary w-100 " %>
-      </div>
-    <% end %>
+      <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" } %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Reset my password", class: "btn btn-primary w-100 " %>
+        </div>
+      <% end %>
+
+    </div>
 
   </div>
 
