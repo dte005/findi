@@ -25,7 +25,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to event_path(@event)
     else
-
+      render :index
     end
   end
 
