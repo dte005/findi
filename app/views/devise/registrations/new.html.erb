@@ -3,9 +3,9 @@
 
   <div class="row">
     <div id="findiBox" class="col-8 d-none d-lg-block" style="display:flex; align-items: center; justify-content: center; height:100vh;"> <!-- ##abertura da parte do logo findi -->
-      <div class="findi-logo" style="border: solid; margin-top: -30%;"> <!-- ## abertura da div do logo do findi -->
-          <h1 style="text-align: center;">Findi</h1>
-          <p style="text-align: center; margin-top: -15px;">Enjoy your life !</p>
+      <div class="title-findi"> <!-- ## abertura da div do logo do findi -->
+        <h1>What you are doing <br>on your free time?</h1>
+        <p>Meet Findi! A platform where you can<br>plan your days off and be together with friends.</p>
       </div> <!-- ##fechamento da div do logo -->
     </div>  <!-- ##fechamento do logotipo -->
 
@@ -25,7 +25,7 @@
               <%= f.input :email,
                           required: true,
                           autofocus: true,
-                          input_html: { autocomplete: "email" }%>
+                          input_html: { autocomplete: "email", value: params[:email] }%>
               <%= f.input :password,
                           required: true,
                           hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
