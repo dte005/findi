@@ -1,13 +1,14 @@
 const datepicker = () => {
   const days = document.querySelectorAll(".day");
-  const dayForm = document.getElementById("event_date");
+  const dayInput = document.getElementById("event_date");
+  const dayHiddenInput = document.getElementById("event_date_event_date");
   const modalLink = document.getElementById("events-modal-link");
 
   days.forEach((day) => {
     day.addEventListener('click', (event) => {
       const dateTime = event.currentTarget.querySelector("#calendar-datetime");
-      dayForm.value = dateTime.value;
-
+      dayInput.value = dateTime.value;
+      dayHiddenInput.value = dateTime.value;
     });
   });
 

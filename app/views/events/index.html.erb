@@ -1,22 +1,45 @@
 <div class="container-fluid" style="height: 85vh;">
   <div class="row">
-    <div class="col-md-5 col-sm-12 col-12" style="height: 85vh;">
-      <div class="container mt-3 d-flex flex-column justify-content-center align-items-center" style="height: 40vh;">
-      <h1 style="margin-bottom: 10px;">Create an event</h1>
-        <!-- FORM BEGIN -->
-        <div class="form-event" style="width: 20rem;">
-        <%= simple_form_for([@event], remote: true,  defaults: { wrapper_html: { class: 'form-event' } } ) do |f| %>
-          <%= f.input :title, label: false, placeholder: "Title"  %>
-          <%= f.input :description, label: false, placeholder: "Description"  %>
-          <%= f.input :date, as: :string, placeholder: "Click on a day on the calendar", disabled: true, label: false %>
-          <%= f.input :date, as: :time, label: false, input_html: { style: ""} %>
-        <% end %>
+    <div class="col-md-5 col-sm-12 col-12" style="height: 90vh;" id="right-container">
+      <div class="container mt-3 d-flex flex-column justify-content-center align-items-center" style="height: 40vh;" id="new-event-container">
+        <div id="container-with-title">
+          <h1 style="margin-bottom: 10px;">Create an event</h1>
+
+          <!-- FORM BEGIN -->
+          <div class="form-event" style="width: 20rem;">
+            <%= simple_form_for @event  do |f| %>
+              <%= f.input :title, label: false, placeholder: "Title"  %>
+              <%= f.input :description, label: false, placeholder: "Description"  %>
+              <div class="row" style="width: 20rem; margin-left: 0px;">
+                <div class="col-6 p-0">
+                  <%= f.input :date, as: :string, placeholder: "Click on a day", disabled: true, label: false %>
+                </div>
+                <div class="col-6 p-0">
+                  <%= simple_fields_for :event_time do |field| %>
+                    <%= field.input :event_time, as: :time, label: false, id: "time-input" %>
+                  <% end %>
+                  <%= simple_fields_for :event_date do |field| %>
+                    <%= field.input :event_date, as: :hidden, label: false %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="d-flex flex-row justify-content-between w-100" style="margin: 0px;">
+                <div class="w-50 ml-0" id="inputbox" style="max-width: 130px;">
+                  <%= f.input :photo, label: false, input_html: { style: "padding: 0px;" } %>
+                  <%= f.input :photo_cache, as: :hidden %>
+                </div>
+                <div class="w-50 d-flex justify-content-end" style="margin: 0px; padding: 0px;">
+                  <%= f.submit 'Create Event', class:"btn btn-primary"%>
+                </div>
+              </div>
+            <% end %>
+          </div>
         </div>
         <!-- FORM END -->
       </div>
 
       <!-- CALENDAR BEGIN -->
-      <div class="container" style="height: 30vh; width: 350px;">
+      <div class="container" style="height: 40vh; width: 350px;">
         <%= month_calendar(attribute: :date, events: @events) do |date, events| %>
           <div id="calendar-day">
             <% if events.present? %>
@@ -33,17 +56,17 @@
           <%= render 'modal', events: events, date: date %>
         <% end %>
       </div> <!-- CALENDAR END -->
-      <div style="text-align:center;padding: 20px;">
-        <% if policy(Event).create? %>
-          <%= link_to 'Create Event', new_event_path, class:"btn btn-primary"%>
-        <% end %>
+        <p style="text-align: center; color: rgba(102,102,102, 0.6); margin-bottom: 0px; margin-top: -25px;">* Click on a day to see your events</p>
+        <a id="pending-modal" data-toggle="modal" data-target="#pendingEventsModal" style="text-align: center; cursor: pointer;">Pending events (<%= @pending_invites.count %>)</a>
+
+      <div style="text-align:center; padding: 20px;">
+
       </div>
     </div> <!-- RIGHT CONTAINER END -->
 
     <div class="col-md-7 col-sm-12 col-12" style="background-image: url('<%= image_path 'index_foto.jpg' %>'); background-size:cover;">
     <div class="row" style="height:70vh;"></div>
       <div class="row justify-content-center align-items-end" style="height:5vh;">
-
       </div>
     </div>
 <%= javascript_pack_tag 'datepicker.js' %>

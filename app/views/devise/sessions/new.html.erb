@@ -2,7 +2,7 @@
   <div class="row">
     <div id="findiBox" class="col-8 d-none d-lg-block " style="display:flex; justify-content: center; height:100vh;"> <!-- ##abertura da parte do logo findi -->
       <div class="title-findi"> <!-- ## abertura da div do logo do findi -->
-          <h1>What you are doing <br>on your free time?</h1>
+          <h1>What are you doing <br>on your free time?</h1>
           <p>Meet Findi! A platform where you can<br>plan your days off and be together with friends.</p>
       </div> <!-- ##fechamento da div do logo -->
     </div>  <!-- ##fechamento do logotipo -->
@@ -10,7 +10,7 @@
         <!-- <img src="../../assets/images/avatar.jpg" alt="avatar" class="avatar"> -->
 
     <div class="col-12 col-md-12 col-lg-4 col-sm-4" style="width:40%; height:40%;"> <!-- ##abertura do login -->
-    <%= image_tag("avatar.jpg", id: "avatar2") %>
+      <div style="text-align: center;"><%= image_tag("avatar.jpg", id: "avatar2") %></div>
       <h2 style="text-align: center;">Log in</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

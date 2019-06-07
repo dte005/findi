@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :invites, dependent: :destroy
   has_many :owned_events, class_name: "Event", dependent: :destroy
-  has_many :events, through: :invites, dependent: :destroy
+  has_many :events, through: :invites
   has_many :messages, dependent: :destroy
 
   private

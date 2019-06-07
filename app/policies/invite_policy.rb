@@ -8,4 +8,8 @@ class InvitePolicy < ApplicationPolicy
   def create?
     record.user == user
   end
+
+  def update?
+    record.email == user.email
+  end
 end

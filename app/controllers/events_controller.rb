@@ -4,24 +4,18 @@ class EventsController < ApplicationController
 
   def index
     @events = policy_scope(Event)
+    @pending_invites = Invite.where(email: current_user.email).where(accepted: nil)
     @event = Event.new
-
-    respond_to do |format|
-      format.html { }
-      format.js do
-        beginning = Time.parse(params[:date]).beginning_of_day
-        ending = Time.parse(params[:date]).end_of_day
-        @day_events = @events.where("date BETWEEN '#{beginning}' AND '#{ending}'")
-      end
-    end
-  end
-
-  def new
   end
 
   def create
     @event = Event.new(event_params)
+    time = params[:event_time].values.last(2)
+    date = params[:event_date].values.first
+    @event.date = DateTime.parse("#{date}T#{time[0]}:#{time[1]}")
     @event.user = current_user
+
+    authorize @event
     if @event.save
       redirect_to event_path(@event)
     else
@@ -47,6 +41,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:events).permit(:date, :title, :description)
+    params.require(:event).permit(:title, :description, :photo)
   end
 end
