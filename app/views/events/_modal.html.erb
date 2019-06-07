@@ -1,3 +1,4 @@
+
 <div class="modal fade" id="dayEventsModal<%= date %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content" id="dayEventsModalContent">
@@ -11,7 +12,7 @@
         <ul style="list-style: none;">
           <li id="event-item">
             <% events.each do |event| %>
-              (<%= event.date.strftime('%I:%M %p') %>) <%= event.title %>  <span style="font-size: 12px;"><%= link_to 'View details', event_path(event), id: "event-details-link" %></span>
+              (<%= event.date.strftime('%I:%M %p') %>) <%= event.title %> (<%= (event.user == current_user ? 'Owner' : 'Invited') %>)  <span style="font-size: 12px;"><%= link_to 'View details', event_path(event), id: "event-details-link" %></span>
             <% end %>
           </li>
         </ul>
@@ -20,6 +21,24 @@
   </div>
 </div>
 
-<div id="caixa_pro_modal">
-
+<div class="modal fade" id="pendingEventsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" id="dayEventsModalContent">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Your pending events</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul style="list-style: none;">
+          <li id="event-item">
+            <% @pending_invites.each do |invite| %>
+              (<%= invite.event.date.strftime('%I:%M %p') %>) <%= invite.event.title %> <p style="font-size: 12px;"><%= link_to 'Accept', invite_path(invite), method: :patch %></p>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
