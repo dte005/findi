@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row" style="height:85vh;">
-    <div class="col-md-7">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-7">
       <div class="d-flex flex-column">
         <div class="row" style="height: 55vh; background-image: url('<%= image_path 'show.jpg' %>'); background-size:cover; border-bottom:5px solid #5c005c; position:relative;">
           <div class="d-flex flex-row justify-content-center title-show-banner-content">
@@ -8,7 +8,7 @@
           </div>
         </div>
         <div class="row justify-content-around details-show-content">
-          <div class="d-flex flex-column justify-content-between" style="width: 30vw; height: 26vh;">
+          <div class="d-flex flex-column justify-content-between details-content-left">
             <div class="d-flex flex-column">
             <div class="mt-3">
               <% @confirmed.each do |accept| %>
@@ -16,7 +16,7 @@
               <% end %>
             </div>
             <div class="mt-1">
-              <article style="color:#666666; font-size:20px;"><%= @event.description %></article>
+              <article><%= @event.description %></article>
             </div>
             </div>
             <div class="d-flex flex-row mt-5">
@@ -30,16 +30,23 @@
               </div>
             </div>
         </div>
-        <div class="d-flex flex-column" style="width: 20vw; height: 26vh;">
+        <div class="d-flex flex-column details-content-right">
           <div class="d-flex flex-column justify-content-between" style="height: 26vh;">
 
             <div class="d-flex flex-column mt-3">
 
             <div class="d-flex flex-row align-items-center">
               <% if @event.user == current_user %>
-              <div><i class="fas fa-plus-square mr-3" data-toggle="modal" data-target="#suggestionModal" style="color:#5c005c; font-size:30px;"></i></div><div><strong style="color:#666666;">Suggestion</strong></div>
+                <div>
+                  <i class="fas fa-plus-square mr-3" data-toggle="modal" data-target="#suggestionModal" style="color:#5c005c; font-size:30px;"></i>
+                </div>
+                <div>
+                  <strong style="color:#666666;">Suggestion</strong>
+                </div>
               <% else %>
-              <div><strong style="color:#4d4d4d;">Added suggestion</strong></div>
+                <div>
+                  <strong style="color:#4d4d4d;">Added suggestion</strong>
+                </div>
               <% end %>
             </div>
 
@@ -71,13 +78,13 @@
       </div>
       </div>
     </div>
-      <div class="col-md-5 p-0">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-5 p-0">
         <%= render 'chat'%>
       </div>
   </div>
 </div>
 
-<!-- Modal Suggestion -->
+<!-- Modal Insertion of Suggestions -->
 <div class="modal fade" id="suggestionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -98,7 +105,9 @@
   </div>
 </div>
 
-<!-- Modal Amigos -->
+<!--Modal for @media for suggestions-->
+
+<!-- Modal Amigos que aceitaram -->
 <div class="modal fade" id="friendsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

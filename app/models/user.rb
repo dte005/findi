@@ -4,10 +4,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :invites
-  has_many :owned_events, class_name: "Event"
+  has_many :invites, dependent: :destroy
+  has_many :owned_events, class_name: "Event", dependent: :destroy
   has_many :events, through: :invites
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
   private
 

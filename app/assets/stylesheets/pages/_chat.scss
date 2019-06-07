@@ -1,0 +1,34 @@
+.chat-general{
+  height: 85vh;
+  background:#f8eee7;
+  margin: 0;
+}
+
+.chat-groups {
+  padding: 0;
+  height: 85vh;
+}
+
+.chat-messages{
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#message-user-content{
+  background:#e5c3ca;
+  padding:10px;
+  border:1px solid lightgrey;
+  border-radius:10px;
+}
+
+#message-invite-content{
+  background:white;
+  padding:10px;
+  border:1px solid lightgrey;
+  border-radius:10px;
+}
+
+.chat-input-form{
+  background:#EEF0F2;
+  padding:10px;
+}
