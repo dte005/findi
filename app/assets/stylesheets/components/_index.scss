@@ -7,21 +7,6 @@
 @import "card";
 @import "bootstrap";
 
-#container-with-title {
-  // margin-bottom: 20px;
-  // margin-top: 20px;
-  h1 {
-    font-size: 2rem;
-    color: #666666;
-  }
-}
-
-#right-container {
-  display: flex !important;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
 #inputbox {
   width: 130px;
   background-color: rgba(#5C005C, 0.8);

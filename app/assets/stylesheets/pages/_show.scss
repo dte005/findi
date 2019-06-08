@@ -10,8 +10,13 @@
   opacity: 0.8;
 }
 
+.title-show-banner-xs-md{
+  background:#ce6a85;
+  color:white;
+  opacity: 0.8;
+}
+
 .details-show-content{
-  height: 30vh;
   padding:10px;
   background: #EEF0F2;
   z-index: 1;
@@ -19,16 +24,6 @@
 
 .text-suggestion{
   color:#4d4d4d;
-}
-
-.details-content-left{
-  width: 30vw;
-  height: 26vh;
-}
-
-.details-content-right{
-  width: 20vw;
-  height: 26vh;
 }
 
 article{
