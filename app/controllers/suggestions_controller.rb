@@ -19,8 +19,10 @@ class SuggestionsController < ApplicationController
   def update
     @event = @suggestion.event
     @event.suggestions.each do |suggest|
-      suggest.selected = false
-      suggest.save
+      unless suggest.id == @suggestion.id
+        suggest.selected = false
+        suggest.save
+      end
     end
     @suggestion.selected = true
     @suggestion.save
