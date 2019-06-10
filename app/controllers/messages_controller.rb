@@ -3,9 +3,9 @@ class MessagesController < ApplicationController
   before_action :find_event, only: [:create]
 
   def index
-    @event = Event.find(params[:event_id]) #preciso pegar o evento para restringir o acesso ao usuario errado
+    @event = Event.find(params[:event_id])
     @messages = policy_scope(Message)
-    authorize @event #restringindo o acesso
+    authorize @event
   end
 
   def create
@@ -13,9 +13,15 @@ class MessagesController < ApplicationController
     @message.event = @event
     @message.user = current_user
     if @message.save
-      redirect_to event_path(@event)
+      respond_to do |format|
+        format.html { redirect_to event_path(@event) }
+        format.js
+      end
     else
-      redirect_to event_path(@event)
+      respond_to do |format|
+        format.html { render 'events/show' }
+        format.js
+      end
     end
   end
 

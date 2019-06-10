@@ -61,7 +61,7 @@
                     <div class="mt-2 ml-4" style="color:#666666;">
                       <% if @event.user == current_user %>
                       <span><%= link_to suggestion.title, suggestion_path(suggestion.id), method: :patch %></span>
-                      <%= link_to suggestion_path(suggestion.id), method: :delete, data: { confirm: "are you shure?" } do %>
+                      <%= link_to suggestion_path(suggestion.id), method: :delete, data: { confirm: "Are you sure?" } do %>
                       <i class="far fa-trash-alt" style="color:#FF708A;"></i>
                       <% end %>
                       <% else %>
@@ -86,7 +86,7 @@
       </div>
     </div>
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-5 p-0">
-        <%= render 'chat'%>
+        <%= render 'chat' %>
       </div>
   </div>
 </div>
@@ -114,7 +114,7 @@
 
 <!--Modal for @media for suggestions-->
 
-<!-- Modal Amigos que aceitaram -->
+<!-- Invite a friend modal -->
 <div class="modal fade" id="friendsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -126,9 +126,9 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for [@event, @invite] do |f| %>
-        <%= f.input :email, label: 'Email'%>
-        <%= f.input :message, label: 'Message' %>
-        <%= f.submit 'Invite', class:"btn btn-primary" %>
+          <%= f.input :email, label: 'Email'%>
+          <%= f.input :message, label: 'Message' %>
+          <%= f.submit 'Invite', class:"btn btn-primary" %>
         <% end %>
       </div>
     </div>
@@ -191,3 +191,5 @@
     </div>
   </div>
 </div>
+
+
