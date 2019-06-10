@@ -29,7 +29,9 @@
             <div class="d-flex flex-column">
             <div class="mt-3">
               <% @confirmed.each do |accept| %>
-              <a href="#" data-toggle="modal" data-target="#friendsConfirmedModal"><%= accept.user.photo %>...</a>
+              <a href="#" data-toggle="modal" data-target="#friendsConfirmedModal">
+                <%= cl_image_tag accept.user.photo, class: "avatar" %>
+              </a>
               <% end %>
             </div>
             <div class="mt-1 mb-4">
