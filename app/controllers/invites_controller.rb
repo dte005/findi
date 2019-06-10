@@ -10,7 +10,8 @@ class InvitesController < ApplicationController
       mail.deliver_now
       redirect_to event_path(@event)
     else
-      redirect_to events_path
+      flash[:alert] = @invite.errors.values.flatten.first
+      redirect_to event_path(@event)
     end
   end
 

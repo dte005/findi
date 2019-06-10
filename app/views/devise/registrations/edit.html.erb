@@ -36,6 +36,8 @@
                       hint: "we need your current password to confirm your changes",
                       required: true,
                       input_html: { autocomplete: "current-password" } %>
+          <%= f.input :photo, label: false, input_html: { style: "padding: 0px;" } %>
+          <%= f.input :photo_cache, as: :hidden %>
 
 
         <div class="form-actions " style=" "  >

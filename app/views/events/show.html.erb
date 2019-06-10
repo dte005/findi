@@ -48,7 +48,6 @@
             </div>
             </div>
         </div>
-
         <div class="col-lg-3 col-md-12 pt-4">
           <div class="menu-add">
             <div id="menu-add-space">
@@ -65,7 +64,7 @@
       </div>
     </div>
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-5 p-0">
-        <%= render 'chat'%>
+        <%= render 'chat' %>
       </div>
   </div>
 </div>
@@ -108,11 +107,12 @@
       </div>
     </div>
   </div>
+  <%= javascript_pack_tag 'init_autocomplete.js' %>
 </div>
 
 <!--Modal for @media for suggestions-->
 
-<!-- Modal Amigos que aceitaram -->
+<!-- Invite a friend modal -->
 <div class="modal fade" id="friendsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

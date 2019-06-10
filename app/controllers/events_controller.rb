@@ -19,6 +19,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to event_path(@event)
     else
+      # flash[:alert] = @event.errors.values.flatten.first
       render :index
     end
   end
