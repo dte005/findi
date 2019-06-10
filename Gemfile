@@ -20,6 +20,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'letter_opener', group: :development
+gem 'geocoder'
+gem 'algoliasearch', '~> 1.26'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

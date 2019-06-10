@@ -76,9 +76,12 @@
       <div class="modal-body">
         <%= simple_form_for [@event, @suggestion] do |r| %>
         <%= r.input :title, label: 'Title' %>
-        <%= r.input :address, label: 'Address'%>
+        <!-- <input type="search" id="address-input" placeholder="Where are we going?" label="Address"/> -->
+        <%= r.input :address, as: :search, label: 'Address', id: 'address-input' %>
         <%= r.button :submit, class:"btn btn-primary" %>
         <% end %>
+
+
       </div>
       <% end %>
         <div class="mb-5">
