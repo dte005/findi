@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     resources :invites, only: %i[create]
     resources :messages, only: %i[new create index]
   end
+
+  mount ActionCable.server => "/cable"
 end
