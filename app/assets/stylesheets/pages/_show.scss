@@ -1,9 +1,9 @@
 .title-show-banner-content{
   background:#ce6a85;
-  left: 5vh;
+  left: 2vh;
   bottom: 0px;
   padding: 2px 20px;
-  width: 30vw;
+  max-width: 35vw;
   color:white;
   z-index: 2;
   position: absolute;
@@ -29,4 +29,45 @@
 article{
   color:#666666;
   font-size:20px;
+}
+
+.data-location{
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+}
+
+.menu-add{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+#menu-add-space{
+  margin-bottom: 20px;
+}
+
+@media (max-width: 991.98px) {
+  .menu-add{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: space-between;
+  }
+
+  #menu-add-space{
+    margin-bottom: 0px;
+  }
+
+  .data-location{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  #data-location-space{
+    margin-bottom: 20px;
+  }
 }
