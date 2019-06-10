@@ -45,8 +45,8 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
-  config.action_cable.url = 'ws://www.findi-online.herokuapp.com/cable'
-  config.action_cable.allowed_request_origins = [ "http://www.findi-online.herokuapp.com", "https://www.findi-online.herokuapp.com" ]
+  config.action_cable.url = 'wss://findi-online.herokuapp.com/cable'
+  config.action_cable.allowed_request_origins = [ "http://findi-online.herokuapp.com", "https://findi-online.herokuapp.com" ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
