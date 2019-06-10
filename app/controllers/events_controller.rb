@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :find_event, only: %i[show]
+  before_action :find_event, only: %i[show destroy]
   before_action :event_params, only: %i[create]
 
   def index
@@ -32,6 +32,11 @@ class EventsController < ApplicationController
     @confirmed = @event.invites.where(accepted: true)
     @invited = @event.invites.all
     @messages = Message.where(event_id: @event)
+  end
+
+  def destroy
+    @event.destroy
+    redirect_to events_path
   end
 
   private
