@@ -7,14 +7,6 @@ class EventsController < ApplicationController
     @pending_invites = Invite.where(email: current_user.email).where(accepted: nil)
     @event = Event.new
 
-    @event_map = Event.where.not(latitude: nil, longitude: nil)
-
-    @markers = @event_map.map do |flatten|
-      {
-        lat: flatten.latitude,
-        lng: flatten.longitude
-      }
-    end
   end
 
   def create
@@ -40,6 +32,15 @@ class EventsController < ApplicationController
     @confirmed = @event.invites.where(accepted: true)
     @invited = @event.invites.all
     @messages = Message.where(event_id: @event)
+
+    @suggest_map = Suggestion.where.not(latitude: nil, longitude: nil)
+
+    @markers = @suggest_map.map do |flatten|
+      {
+        lat: flatten.latitude,
+        lng: flatten.longitude
+      }
+    end
   end
 
   private

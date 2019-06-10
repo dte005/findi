@@ -6,7 +6,7 @@ import "./init_autocomplete";
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 // internal imports
-import { initMapbox } from '../plugins/init_mapbox';
+import { initMapbox } from './init_mapbox';
 
 initMapbox();
 
