@@ -1,7 +1,7 @@
 <div class="chat-general">
     <div class="col-12 d-flex flex-column justify-content-between chat-groups">
       <div class="d-flex flex-column flex-grow-1 ml-2 mt-2 chat-messages">
-        <div id="chat-content" class="d-flex flex-column justify-content-between flex-grow-1">
+        <div id="chat-content" class="d-flex flex-column flex-grow-1">
           <% @messages.each do |message|%>
             <%= render 'message', message: message, user_is_messages_author: message.user == current_user %>
           <% end %>
