@@ -1,10 +1,10 @@
-<div class="container-fluid" style="height: 85vh;">
+<div class="container-fluid" style="height: 90vh;">
   <div class="row">
-    <div class="col-md-5 col-sm-12 col-12" style="height: 90vh;" id="right-container">
-      <div class="container mt-3 d-flex flex-column justify-content-center align-items-center" style="height: 40vh;" id="new-event-container">
-        <div id="container-with-title">
-          <h1 style="margin-bottom: 10px;">Create an event</h1>
-
+    <div class="col-xl-5 col-lg-12 col-md-12 col-sm-12" style="height: 90vh;">
+      <div class="d-flex flex-column justify-content-center align-items-center m-3 p-1" id="new-event-container">
+        <div>
+        <h1 style="margin-bottom: 10px; font-size: 2rem; color: #666666;">Create an event</h1>
+        </div>
           <!-- FORM BEGIN -->
           <div class="form-event" style="width: 20rem;">
             <%= simple_form_for @event  do |f| %>
@@ -34,39 +34,43 @@
               </div>
             <% end %>
           </div>
-        </div>
         <!-- FORM END -->
       </div>
-
-      <!-- CALENDAR BEGIN -->
-      <div class="container" style="height: 40vh; width: 350px;">
-        <%= month_calendar(attribute: :date, events: @events) do |date, events| %>
-          <div id="calendar-day">
-            <% if events.present? %>
-              <a id="events-modal-link" data-toggle="modal" data-target="#dayEventsModal<%= date %>">
-            <% end %>
-              <span id="day-text" style="cursor: pointer;"><%= date.day %></span>
-            <% if events.present? %>
-              </a>
-            <% end %>
-              <%= hidden_field_tag('calendar-datetime', date) %>
-            <% events.each do |event| %>
-            <% end %>
+      <div class="d-flex flex-column justify-content-center align-items-center m-3">
+        <!-- CALENDAR BEGIN -->
+        <div>
+          <%= month_calendar(attribute: :date, events: @events) do |date, events| %>
+            <div id="calendar-day">
+              <% if events.present? %>
+                <a id="events-modal-link" data-toggle="modal" data-target="#dayEventsModal<%= date %>">
+              <% end %>
+                <span id="day-text" style="cursor: pointer;"><%= date.day %></span>
+              <% if events.present? %>
+                </a>
+              <% end %>
+                <%= hidden_field_tag('calendar-datetime', date) %>
+              <% events.each do |event| %>
+              <% end %>
+            </div>
+            <%= render 'modal', events: events, date: date %>
+          <% end %>
+        </div> <!-- CALENDAR END -->
+        <div class="d-flex flex-column justify-content-center">
+          <div style="text-align:center;">
+            <span style="color: rgba(102,102,102, 0.6);">* Click on a day to see your events</span>
           </div>
-          <%= render 'modal', events: events, date: date %>
-        <% end %>
-      </div> <!-- CALENDAR END -->
-        <p style="text-align: center; color: rgba(102,102,102, 0.6); margin-bottom: 0px; margin-top: -25px;">* Click on a day to see your events</p>
-        <a id="pending-modal" data-toggle="modal" data-target="#pendingEventsModal" style="text-align: center; cursor: pointer;">Pending events (<%= @pending_invites.count %>)</a>
-
-      <div style="text-align:center; padding: 20px;">
-
+          <div style="text-align:center;">
+            <a id="pending-modal" data-toggle="modal" data-target="#pendingEventsModal" style="cursor: pointer;">Pending events (<%= @pending_invites.count %>)</a>
+          </div>
+        </div>
       </div>
-    </div> <!-- RIGHT CONTAINER END -->
+    </div> <!-- LEFT CONTAINER END -->
 
-    <div class="col-md-7 col-sm-12 col-12" style="background-image: url('<%= image_path 'index_foto.jpg' %>'); background-size:cover;">
+    <div class="d-none d-xl-block col-xl-7 col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-image: url('<%= image_path 'index_foto.jpg' %>'); background-size:cover;">
     <div class="row" style="height:70vh;"></div>
       <div class="row justify-content-center align-items-end" style="height:5vh;">
       </div>
     </div>
+  </div>
+</div>
 <%= javascript_pack_tag 'datepicker.js' %>
