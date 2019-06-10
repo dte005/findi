@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :find_event, only: %i[show]
+  before_action :find_event, only: %i[show destroy]
   before_action :event_params, only: %i[create]
 
   def index
@@ -20,6 +20,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to event_path(@event)
     else
+      # flash[:alert] = @event.errors.values.flatten.first
       render :index
     end
   end
@@ -41,6 +42,11 @@ class EventsController < ApplicationController
         lng: flatten.longitude
       }
     end
+  end
+
+  def destroy
+    @event.destroy
+    redirect_to events_path
   end
 
   private

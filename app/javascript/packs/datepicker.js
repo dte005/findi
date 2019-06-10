@@ -1,4 +1,5 @@
 const datepicker = () => {
+  console.log("oi");
   const days = document.querySelectorAll(".day");
   const dayInput = document.getElementById("event_date");
   const dayHiddenInput = document.getElementById("event_date_event_date");

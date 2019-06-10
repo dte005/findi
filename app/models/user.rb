@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :events, through: :invites
   has_many :messages, dependent: :destroy
 
+  mount_uploader :photo, PhotoUploader
+
   private
 
   def send_welcome_email

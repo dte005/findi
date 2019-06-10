@@ -1,0 +1,19 @@
+<% if @message.errors.any? %>
+  // handle validation errors later
+
+<% else %>
+  var messages = document.querySelector('#chat-content');
+  messages.insertAdjacentHTML('beforeend', '<%= j render "events/message", message: @message, user_is_messages_author: true %>');
+  var input = document.querySelector('#input-chat');
+  input.value = '';
+  input.blur();
+  messages.scrollTop = messages.scrollHeight;
+
+<% end %>
+
+// const input = document.querySelector('#input-chat');
+// input.addEventListener('keypress', function(e){
+//   if (e.keyCode === 13) {
+//     e.currentTarget.closest('form').submit();
+//   }
+// });
