@@ -2,7 +2,7 @@
   <% if user_is_messages_author %>
     <div class="d-flex flex-column mr-2 mt-2 align-items-end" style="text-align-right;">
         <div style="padding: 10px 10px 1px 10px;"></div>
-        <div style="padding:10px; max-width: 50%; margin-bottom: -15px;">
+        <div style="padding:10px; max-width: 70%; margin-bottom: -15px;">
           <div id="message-user-content"><%= message.content %></div>
         </div>
     </div>
@@ -11,7 +11,7 @@
       <div style="padding: 10px 10px 1px 10px;">
         <strong style="color:#5c005c; font-size:12px;"><%= message.user.email %></strong>
       </div>
-      <div style="padding:10px; max-width: 50%; margin-bottom: -15px;">
+      <div style="padding:10px; max-width: 70%; margin-bottom: -15px;">
         <div id="message-invite-content"><%= message.content %></div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 class Message < ApplicationRecord
   belongs_to :event
   belongs_to :user
+  validates :content, length: { minimum: 1 }
   after_create :broadcast_message
 
   def broadcast_message
