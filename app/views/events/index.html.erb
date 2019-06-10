@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-6 p-0">
                   <%= simple_fields_for :event_time do |field| %>
-                    <%= field.input :event_time, as: :time, label: false, id: "time-input" %>
+                    <%= field.input :event_time, as: :time, minute_step: 15, label: false, id: "time-input" %>
                   <% end %>
                   <%= simple_fields_for :event_date do |field| %>
                     <%= field.input :event_date, as: :hidden, label: false %>
