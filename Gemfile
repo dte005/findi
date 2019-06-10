@@ -21,7 +21,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'letter_opener', group: :development
 gem 'geocoder'
-gem 'algoliasearch'
+gem 'algoliasearch', '~> 1.26'
 
 
 group :development do
