@@ -44,7 +44,7 @@
         <ul style="list-style: none;">
           <li id="event-item">
             <% @pending_invites.each do |invite| %>
-              (<%= invite.event.date.strftime('%A %e, %B %Y at %I:%M %p') %>) <%= invite.event.title %> <p style="font-size: 12px;"><%= link_to 'Accept', invite_path(invite), method: :patch %></p>
+              (<%= invite.event.date.strftime('%A %e, %B %Y at %I:%M %p') %>) <%= invite.event.title %> <p style="font-size: 12px;"><%= link_to 'Accept', invite_path(invite), method: :patch %> </p>
             <% end %>
           </li>
         </ul>
