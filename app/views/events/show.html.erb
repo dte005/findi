@@ -7,11 +7,19 @@
         <div class="row d-xl-none d-md-none justify-content-center" style="border-bottom:5px solid #5c005c; background:#ce6a85; text-align:center;">
             <h1 style="color:white;"><%= @event.title %></h1>
         </div>
+        <% if @event.photo.file.nil? %>
+        <div class="row d-none d-md-block" style="height: 55vh; background-image: url('<%= image_path 'show.jpg' %>'); background-size:cover; border-bottom:5px solid #5c005c; position:relative;">
+          <div class="d-flex flex-row justify-content-start title-show-banner-content">
+            <h1><%= @event.title %></h1>
+          </div>
+        </div>
+        <% else %>
         <div class="row d-none d-md-block" style="height: 55vh; background-image: url('<%= cl_image_path @event.photo %>'); background-size:cover; border-bottom:5px solid #5c005c; position:relative;">
           <div class="d-flex flex-row justify-content-start title-show-banner-content">
             <h1><%= @event.title %></h1>
           </div>
         </div>
+        <% end %>
         <!--End-->
 
         <!--Inicio dos detalhes-->

@@ -9,13 +9,23 @@
         </button>
       </div>
       <div class="modal-body">
-        <ul style="list-style: none;">
-          <li id="event-item">
-            <% events.each do |event| %>
-              (<%= event.date.strftime('%I:%M %p') %>) <%= event.title %> (<%= (event.user == current_user ? 'Owner' : 'Invited') %>)  <span style="font-size: 12px;"><%= link_to 'View details', event_path(event), id: "event-details-link" %></span>
-            <% end %>
-          </li>
-        </ul>
+          <% events.each do |event| %>
+          <div class="d-flex flex-row justify-content-between" id="event-item" style="border-bottom: 1px solid lightgrey; margin-bottom: 20px;">
+              <div>
+              <strong style="color:#5C005C"><%= event.date.strftime('%I:%M %p') %></strong> | <%= event.title %> (<%= (event.user == current_user ? 'Owner' : 'Invited') %>)
+              </div>
+              <div class="ml-2" style="flex-grow:1;">
+                <%= link_to event_path(event), id: "event-details-link" do %>
+                <i class="fas fa-info-circle" style="font-size: 15px; color:#5C005C; margin-right:8px;"></i>
+                <% end %>
+              </div>
+              <div>
+                <%= link_to event_path(event), method: :delete, data: { confirm: "are you shure?" } do %>
+                <i class="far fa-trash-alt" style="color:#FF708A; margin-right:8px;"></i>
+                <% end %>
+              </div>
+          </div>
+          <% end %>
       </div>
     </div>
   </div>
