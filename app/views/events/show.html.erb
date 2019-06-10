@@ -104,9 +104,16 @@
       <div class="modal-body">
         <%= simple_form_for [@event, @suggestion] do |r| %>
         <%= r.input :title, label: 'Title' %>
-        <%= r.input :address, label: 'Address'%>
+        <%= r.input :address, label: 'Address', id: 'address-input' %>
         <%= r.button :submit, class:"btn btn-primary" %>
         <% end %>
+            <script>
+              let placesAutocomplete = places({
+                appId: <YOUR_PLACES_APP_ID>,
+                apiKey: 'dccab85b53d7694c2a39952863ed79d4',
+                container: document.querySelector('#address-input')
+              });
+            </script>
       </div>
     </div>
   </div>
