@@ -5,6 +5,10 @@ class SuggestionPolicy < ApplicationPolicy
     end
   end
 
+  def create?
+    record.event.user == user
+  end
+
   def destroy?
     record.event.user == user
   end

@@ -29,10 +29,9 @@
             <div class="d-flex flex-column">
             <div class="mt-3" style="position:relative;">
               <% @confirmed.first(3).each do |accept| %>
-              <a href="#" data-toggle="modal" data-target="#friendsConfirmedModal">
-                <%= cl_image_tag accept.user.photo, class: "avatar_details" %>
-              </a>
-              <% end %> <span><% unless @confirmed.count - 3 < 0 %> ...e mais <%= @confirmed.count - 3 %><% end %></span>
+                <span data-toggle="tooltip" data-placement="top" title="<%= accept.user.email %>"><%= cl_image_tag accept.user.photo, class: "avatar_details" %></span>
+              <% end %>
+              <a href="#" data-toggle="modal" data-target="#friendsConfirmedModal" style="text-decoration:none;"><strong><% unless @confirmed.count - 3 < 0 %> ...e mais <%= @confirmed.count - 3 %><% end %></strong></a>
             </div>
             <div class="mt-1 mb-4">
               <article><%= @event.description %></article>
@@ -53,10 +52,10 @@
         </div>
         <div class="col-lg-3 col-md-12 pt-4">
           <div class="menu-add">
-            <div id="menu-add-space">
+            <div id="menu-add-space" data-toggle="tooltip" data-placement="top" title="Suggestions" >
             <i class="fas fa-street-view" style="color:white; font-size:25px; background:#5c005c; padding:10px; border-radius:50px;" data-toggle="modal" data-target="#suggestionModal"></i>
             </div>
-            <div>
+            <div data-toggle="tooltip" data-placement="top" title="Friends">
             <i class="fas fa-user-plus" style="color:white; font-size:20px; background:#5c005c; padding:12px 10px; border-radius:50px;" data-toggle="modal" data-target="#friendsModal"></i>
             </div>
           </div>
@@ -96,16 +95,40 @@
       <% end %>
         <div class="mb-5" style="max-height: 150px; overflow-y: auto; overflow-x: hidden;">
           <% @event.suggestions.each do |suggestion| %>
-            <div class="mt-2 ml-4 mr-2" style="color:#666666;">
+            <div class="d-flex flex-column mt-2 ml-4 mr-2" style="color:#666666;">
               <% if @event.user == current_user %>
-                <%= link_to suggestion_path(suggestion.id), method: :delete, data: { confirm: "are you shure?" } do %>
-                <i class="far fa-trash-alt" style="color:#FF708A; margin-right:8px;"></i>
-                <% end %>
-                <span><%= link_to suggestion.title, suggestion_path(suggestion.id), method: :patch %></span>
-            <% else %>
-              <span><%= suggestion.title %></span>
-            <% end %>
-              </div>
+                <div class="d-flex flex-row justify-content-between">
+                  <div>
+                    <%= link_to suggestion_path(suggestion.id), method: :delete, data: { confirm: "are you sure?" } do %>
+                    <i class="far fa-trash-alt" style="color:#FF708A; margin-right:8px;"></i>
+                    <% end %>
+                  </div>
+                  <div class="flex-grow-1">
+                    <span><%= link_to suggestion.title, suggestion_path(suggestion.id), method: :patch %></span>
+                  </div>
+                  <div>
+                    <strong> <span class="mr-2" style="color:#FF708A;">Votes:</span> <%= suggestion.votes.where(status: true).count %></strong>
+                  </div>
+                </div>
+              <% else %>
+                <div class="d-flex flex-row justify-content-between align-items-center">
+
+                  <div class="flex-grow-1">
+                    <span><%= suggestion.title %></span>
+                  </div>
+                    <div class="mr-2">
+                      <%= link_to suggestion_votes_path(suggestion.id, vote:'down'), method: :post, data: { confirm: "You can only vote once! are you sure?"} do %>
+                        <i class="far fa-thumbs-down" style="color:#5c005c; margin-right:8px; font-size:20px;"></i>
+                      <% end %>
+                    </div>
+                    <div>
+                      <%= link_to suggestion_votes_path(suggestion.id, vote:"up"), method: :post, data: { confirm: "You can only vote once! are you sure?"} do %>
+                        <i class="far fa-thumbs-up" style="color:#FF708A; margin-right:8px; font-size: 20px;"></i>
+                      <% end %>
+                    </div>
+                </div>
+              <% end %>
+            </div>
           <% end %>
       </div>
     </div>
