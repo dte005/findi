@@ -34,7 +34,7 @@ class EventsController < ApplicationController
     @invited = @event.invites.all
     @messages = Message.where(event_id: @event)
 
-    @suggest_map = Suggestion.where.not(latitude: nil, longitude: nil)
+    @suggest_map = @event.suggestions.where.not(latitude: nil, longitude: nil).where(selected: true)
 
     @markers = @suggest_map.map do |flatten|
       {
@@ -42,6 +42,7 @@ class EventsController < ApplicationController
         lng: flatten.longitude
       }
     end
+
   end
 
   def destroy
