@@ -5,11 +5,11 @@ class VotePolicy < ApplicationPolicy
     end
   end
 
-  def create
+  def create?
     true
   end
 
-  def destroy
+  def destroy?
     true
   end
 end

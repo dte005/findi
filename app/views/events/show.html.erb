@@ -102,22 +102,24 @@
                   <i class="far fa-trash-alt" style="color:#FF708A; margin-right:8px;"></i>
                   <% end %>
                   <span><%= link_to suggestion.title, suggestion_path(suggestion.id), method: :patch %></span>
+                  <span> Votes: <%= suggestion.votes.where(status: true).count %></span>
                 </div>
               <% else %>
                 <div class="d-flex flex-row justify-content-between align-items-center">
+
                   <div class="flex-grow-1">
                     <span><%= suggestion.title %></span>
                   </div>
-                  <div class="mr-2">
-                    <%= link_to vote_path(suggestion.id), method: :delete, data: { confirm: "You can only vote once! are you sure?"} do %>
-                      <i class="far fa-thumbs-down" style="color:#5c005c; margin-right:8px; font-size:20px;"></i>
-                    <% end %>
-                  </div>
-                  <div>
-                    <%= link_to suggestion_votes_path(suggestion.id), method: :post, data: { confirm: "You can only vote once! are you sure?"} do %>
-                      <i class="far fa-thumbs-up" style="color:#FF708A; margin-right:8px; font-size: 20px;"></i>
-                    <% end %>
-                  </div>
+                    <div class="mr-2">
+                      <%= link_to suggestion_votes_path(suggestion.id, vote:'down'), method: :post, data: { confirm: "You can only vote once! are you sure?"} do %>
+                        <i class="far fa-thumbs-down" style="color:#5c005c; margin-right:8px; font-size:20px;"></i>
+                      <% end %>
+                    </div>
+                    <div>
+                      <%= link_to suggestion_votes_path(suggestion.id, vote:"up"), method: :post, data: { confirm: "You can only vote once! are you sure?"} do %>
+                        <i class="far fa-thumbs-up" style="color:#FF708A; margin-right:8px; font-size: 20px;"></i>
+                      <% end %>
+                    </div>
                 </div>
               <% end %>
             </div>
