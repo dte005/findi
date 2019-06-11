@@ -71,3 +71,11 @@ article{
     margin-bottom: 20px;
   }
 }
+
+#selected-suggestion {
+  cursor: pointer;
+  span:hover {
+    // transition: 0.5s;
+    // color: #5C005C;
+  }
+}
