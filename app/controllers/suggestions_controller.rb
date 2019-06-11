@@ -6,6 +6,7 @@ class SuggestionsController < ApplicationController
     @suggestion = Suggestion.new(suggestions_params)
     @suggestion.event = @event
     if @suggestion.save
+
       redirect_to event_path(@event)
     else
       flash[:alert] = @suggestion.errors.values.flatten.first
