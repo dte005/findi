@@ -7,9 +7,5 @@ class Event < ApplicationRecord
   validates :date, presence: true
   validates :description, presence: true, length: { maximum: 150, too_long: "Description must have at most %{count} characters." }
 
-  geocoded_by :address
-  # after_validation :geocode, if: :will_save_change_to_address?
-
-
   mount_uploader :photo, PhotoUploader
 end
