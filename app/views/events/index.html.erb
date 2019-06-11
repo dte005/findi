@@ -24,8 +24,8 @@
                 </div>
               </div>
               <div class="d-flex flex-row justify-content-between w-100" style="margin: 0px;">
-                <div class="w-50 ml-0" id="inputbox" style="max-width: 150px;">
-                  <%= f.input :photo, label: false, input_html: { style: "padding: 0px;" } %>
+                <div class="w-50 ml-0" id="inputbox" style="max-width: 150px; font-size:30px; background-image: url('<%= image_path 'camera-solid.svg'%>');">
+                  <%= f.input :photo, label: false, input_html: { style: "padding: 0px;" }%>
                   <%= f.input :photo_cache, as: :hidden %>
                 </div>
                 <div class="w-50 d-flex justify-content-end" style="margin: 0px; padding: 0px;">
@@ -74,4 +74,3 @@
   </div>
 </div>
 <%= javascript_pack_tag 'datepicker.js' %>
-
