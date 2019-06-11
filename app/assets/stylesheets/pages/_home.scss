@@ -20,12 +20,12 @@
   opacity: 0;
 }
 
-.pending-events-link{
-  color: #5C005C;
-  font-weight: bold;
+.below-calendar-links {
+  color: #5C005C !important;
+  font-weight: bold !important;
   &:hover{
-    transition: 0.5s;
-    color: #FF708A;
+    transition: 0.5s !important;
+    color: #FF708A !important;
   }
 }
 

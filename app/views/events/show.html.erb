@@ -99,7 +99,7 @@
               <% if @event.user == current_user %>
                 <div class="d-flex flex-row justify-content-between">
                   <div>
-                    <%= link_to suggestion_path(suggestion.id), method: :delete, data: { confirm: "are you sure?" } do %>
+                    <%= link_to suggestion_path(suggestion.id), method: :delete, data: { confirm: "Are you sure you want to delete it?" } do %>
                     <i class="far fa-trash-alt" style="color:#FF708A; margin-right:8px;"></i>
                     <% end %>
                   </div>

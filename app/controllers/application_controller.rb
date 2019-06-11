@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
+  before_action :current_user_events
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   include Pundit
@@ -12,6 +13,14 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:photo])
     devise_parameter_sanitizer.permit(:account_update, keys: [:photo])
+  end
+
+  def current_user_events
+    @current_user_events = []
+
+    if current_user
+      @current_user_events = (current_user.owned_events + current_user.events).sort_by { |e| e.date }
+    end
   end
 
   # Uncomment when you *really understand* Pundit!
