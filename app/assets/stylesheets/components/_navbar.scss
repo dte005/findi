@@ -13,3 +13,44 @@
   width: 60px;
 }
 
+#nav-icon {
+  font-size: 26px;
+  color: #5C005C;
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+    transition: 0.3s;
+  }
+
+  #invites-count {
+    font-family: "Montserrat, sans-serif";
+    font-size: 14px;
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    height: 16px;
+    width: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    top: 5%;
+    left: 60%;
+  }
+}
+
+#events-list-icon {
+  font-size: 26px;
+  color: #5C005C;
+  position: relative;
+  cursor: pointer;
+  padding: 8px;
+  &:hover {
+    opacity: 0.8;
+    transition: 0.3s;
+  }
+}
+
