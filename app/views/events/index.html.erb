@@ -39,6 +39,7 @@
       <div class="d-flex flex-column justify-content-center align-items-center m-3">
         <!-- CALENDAR BEGIN -->
         <div>
+        <div>
           <%= month_calendar(attribute: :date, events: @events) do |date, events| %>
             <div id="calendar-day">
               <% if events.present? %>
@@ -59,9 +60,11 @@
           <div style="text-align:center;">
             <span style="color: rgba(102,102,102, 0.6);">* Click on a day to see your events</span>
           </div>
-          <div class="mt-3 pending-events-link" style="text-align:center;">
-            <a id="pending-modal" data-toggle="modal" data-target="#pendingEventsModal" style="cursor: pointer;">Pending invites (<%= @pending_invites.count %>)</a>
+          <div class="mt-1 below-calendar d-flex flex-row justify-content-between" style="text-align:center;">
+            <a class="below-calendar-links" data-toggle="modal" data-target="#eventsListModal" style="cursor: pointer;">Your events</a>
+            <a class="below-calendar-links" id="pending-modal" data-toggle="modal" data-target="#pendingEventsModal" style="cursor: pointer;">Pending invites (<%= @pending_invites.count %>)</a>
           </div>
+        </div>
         </div>
       </div>
     </div> <!-- LEFT CONTAINER END -->

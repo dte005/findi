@@ -98,7 +98,7 @@
           <% @event.suggestions.each do |suggestion| %>
             <div class="mt-2 ml-4 mr-2" style="color:#666666;">
               <% if @event.user == current_user %>
-                <%= link_to suggestion_path(suggestion.id), method: :delete, data: { confirm: "are you shure?" } do %>
+                <%= link_to suggestion_path(suggestion.id), method: :delete, data: { confirm: "Are you sure you want to delete it?" } do %>
                 <i class="far fa-trash-alt" style="color:#FF708A; margin-right:8px;"></i>
                 <% end %>
                 <span><%= link_to suggestion.title, suggestion_path(suggestion.id), method: :patch %></span>
