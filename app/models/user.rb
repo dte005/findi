@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :owned_events, class_name: "Event", dependent: :destroy
   has_many :events, through: :invites
   has_many :messages, dependent: :destroy
+  has_many :votes
 
   mount_uploader :photo, PhotoUploader
 
