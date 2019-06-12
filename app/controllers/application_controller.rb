@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
 
     if current_user
       @current_user_events = (current_user.owned_events + current_user.events).sort_by { |e| e.date }
+      @pending_invites = Invite.where(email: current_user.email).where(accepted: nil)
     end
   end
 

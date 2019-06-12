@@ -10,7 +10,7 @@
       <div class="chat-input-form">
       <%= simple_form_for [@event, @message], wrapper: :inline_form, html: { class: "form-inline" }, remote: true do |f|%>
         <div class="flex-grow-1">
-        <%= f.input :content, label: false, input_html: { class: "ml-1 mb-1 mt-1 mr-sm-1 w-100", id:"input-chat" }%>
+        <%= f.input :content, label: false, as: :string, input_html: { class: "ml-1 mb-1 mt-1 mr-sm-1 w-100", id:"input-chat" }%>
         </div>
         <%= f.button :button do %>
           <i class="fas fa-paper-plane" style="color:#5c005c; font-size:30px;"></i>
