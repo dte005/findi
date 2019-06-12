@@ -7,7 +7,7 @@ class EventsController < ApplicationController
     @pending_invites = Invite.where(email: current_user.email).where(accepted: nil)
     @event = Event.new
     unless @pending_invites.empty?
-      flash[:alert] = ("You have #{@pending_invites.count} invite#{"s" if @pending_invites.count > 1} pending. Click on the " + '<i class="fas fa-envelope"></i>').html_safe
+      flash[:alert] = "You have #{@pending_invites.count} invite#{"s" if @pending_invites.count > 1} pending. Click on the envelope icon"
     end
   end
 
