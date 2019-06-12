@@ -9,8 +9,17 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 60px;
+.navbar-lewagon .navbar-brand {
+  .findi-logo {
+    width: 60px;
+    height: 29px;
+    background-image: url("logo.png");
+    background-size: cover;
+    &:hover {
+      background-image: url("logo_purple.png");
+      transition: 0.2s;
+    }
+  }
 }
 
 #nav-icon {
