@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="flex-grow-1">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <div class="findi-logo"></div>
+    <%= image_tag "logo.png" %>
     <% end %>
   </div>
   <% if user_signed_in? %>
