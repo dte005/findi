@@ -88,8 +88,15 @@ article{
   }
 }
 
+.modal-content {
+  height: 60vh;
+}
+
 @media (min-width: 992px) {
   #mapModal {
+    .modal-content {
+      height: 80vh;
+    }
     .modal-dialog {
       max-width: 500px !important;
       max-height: 500px !important;
