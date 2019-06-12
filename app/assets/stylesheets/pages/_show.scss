@@ -88,8 +88,10 @@ article{
   }
 }
 
-.modal-content {
-  height: 60vh;
+#mapModal {
+  .modal-content {
+    height: 60vh;
+  }
 }
 
 @media (min-width: 992px) {
