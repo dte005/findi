@@ -117,7 +117,7 @@
                     <span><%= suggestion.title %></span>
                   </div>
                     <div class="mr-2">
-                      <%= link_to suggestion_votes_path(suggestion.id, vote:'down'), method: :post, data: { confirm: "You can only vote once! are you sure?"} do %>
+                      <%= link_to suggestion_votes_path(suggestion.id, vote:'down'), method: :post, data: { confirm: "You can only vote once! Are you sure?"} do %>
                         <i class="far fa-thumbs-down" style="color:#5c005c; margin-right:8px; font-size:20px;"></i>
                       <% end %>
                     </div>
