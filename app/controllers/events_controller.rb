@@ -15,14 +15,22 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     time = params[:event_time].values.last(2)
     date = params[:event_date].values.first
-    @event.date = DateTime.parse("#{date}T#{time[0]}:#{time[1]}")
     @event.user = current_user
+
+    if params[:event_date].values.first.empty?
+      @event.date = ""
+    else
+      @event.date = DateTime.parse("#{date}T#{time[0]}:#{time[1]}")
+    end
 
     authorize @event
     if @event.save
       redirect_to event_path(@event)
     else
       flash[:alert] = @event.errors.values.flatten.first
+      @events = policy_scope(Event)
+      @pending_invites = Invite.where(email: current_user.email).where(accepted: nil)
+
       render :index
     end
   end
