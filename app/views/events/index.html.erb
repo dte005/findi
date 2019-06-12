@@ -29,7 +29,7 @@
                   <%= f.input :photo_cache, as: :hidden %>
                 </div>
                 <div class="w-50 d-flex justify-content-end" style="margin: 0px; padding: 0px;">
-                  <%= f.submit 'Create Event', class:"btn btn-primary btn-create"%>
+                  <%= f.submit 'Create Event', class:"btn btn-primary btn-create", input_html: {style:"z-index: 0;"}%>
                 </div>
               </div>
             <% end %>
@@ -70,10 +70,6 @@
     </div> <!-- LEFT CONTAINER END -->
 
     <div class="d-none d-xl-block col-xl-7 col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-image: url('<%= image_path 'index_foto.jpg' %>'); background-size:cover;">
-    <div class="row" style="height:70vh;"></div>
-      <div class="row justify-content-center align-items-end" style="height:5vh;">
-      </div>
     </div>
-  </div>
 </div>
 <%= javascript_pack_tag 'datepicker.js' %>
