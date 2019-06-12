@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :votes, dependent: :destroy
 
   mount_uploader :photo, PhotoUploader
+  validates_format_of :email, with: /A([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)z/i
 
   private
 
