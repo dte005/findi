@@ -38,6 +38,13 @@
   padding:10px;
 }
 
+i {
+  &:hover {
+    opacity: 0.8;
+    transition: 0.2s;
+  }
+}
+
 @media (max-width: 991.98px) {
   .chat-general{
     background: white;
