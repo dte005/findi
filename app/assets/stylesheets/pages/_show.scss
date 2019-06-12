@@ -87,3 +87,20 @@ article{
     // color: #5C005C;
   }
 }
+
+@media (min-width: 992px) {
+  #mapModal {
+    .modal-dialog {
+      max-width: 500px !important;
+      max-height: 500px !important;
+    }
+    .modal-body {
+      height: 500px;
+      width: 500px;
+    }
+    .mapboxgl-canvas {
+      height: 100% !important;
+      width: 100% !important;
+    }
+  }
+}
