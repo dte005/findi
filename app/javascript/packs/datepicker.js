@@ -22,21 +22,6 @@ const datepicker = () => {
 
     return `${day}/${month}/${year}`;
   }
-
-  // modalLink.addEventListener('click', (event) => {
-  //   console.log(event.currentTarget.dataset.date);
-  //   $.ajax({
-  //     url: `localhost:3000/`,
-  //     data: {"date": `${event.currentTarget.dataset.date}`},
-  //     dataType: "json",
-  //     type: "POST",
-  //     success: (data) => {
-  //       console.log("Success");
-
-  //     }
-  //   });
-  // });
-
 };
 
 
