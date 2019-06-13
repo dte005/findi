@@ -42,7 +42,7 @@ class EventsController < ApplicationController
     @suggestion_selected = @event.suggestions.find_by(selected: true)
     @confirmed = @event.invites.where(accepted: true)
     @invited = @event.invites.all
-    @messages = Message.where(event_id: @event)
+    @messages = Message.where(event_id: @event).order(:created_at)
 
     @suggest_map = @event.suggestions.where.not(latitude: nil, longitude: nil).where(selected: true)
     @markers = @suggest_map.map do |flatten|
