@@ -44,6 +44,8 @@
   </div>
 </div>
 
+<!--Modal de eventos-->
+
 <div class="modal fade" id="eventsListModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content" id="eventsListModalContent">
@@ -53,28 +55,35 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body overflow-auto" style="height:50vh;">
           <% @current_user_events.each do |event| %>
-          <div class="d-flex flex-row justify-content-between" id="event-item" style="border-bottom: 1px solid lightgrey; margin-bottom: 20px;">
-              <div>
-              <strong style="color:#5C005C"><%= event.date.strftime('%a, %b %e (%I:%M %p)') %></strong> | <%= event.title %> (<%= (event.user == current_user ? 'Owner' : 'Invited') %>)
-              </div>
+          <div class="card">
+            <div class="card-header">
+              <span style="font-size:20px;"><%= event.title %></span> <strong>(<%= (event.user == current_user ? 'Owner' : 'Invited') %>)</strong>
+            </div>
+            <div class="card-body">
+              <strong style="color:#5C005C"><%= event.date.strftime('%a, %b %e (%I:%M %p)') %></strong>
+              <div class="d-flex flex-row mt-2">
               <div class="ml-2" style="flex-grow:1;">
                 <%= link_to event_path(event), id: "event-details-link" do %>
-                <i class="fas fa-info-circle" style="font-size: 15px; color:#5C005C; margin-right:8px;"></i>
+                <i class="fas fa-info-circle" style="font-size: 20px; color:#5C005C; margin-right:8px;"></i>
                 <% end %>
               </div>
               <div>
                 <%= link_to event_path(event), method: :delete, data: { confirm: "Are you sure you want to delete it?" } do %>
-                <i class="far fa-trash-alt" style="color:#FF708A; margin-right:8px;"></i>
+                <i class="far fa-trash-alt" style="color:#FF708A; font-size: 20px; margin-right:8px;"></i>
                 <% end %>
               </div>
+              </div>
+            </div>
           </div>
           <% end %>
       </div>
     </div>
   </div>
 </div>
+
+<!-- modal de eventos pendentes -->
 
 <div class="modal fade" id="pendingEventsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
