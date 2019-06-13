@@ -20,7 +20,7 @@ class EventsController < ApplicationController
     if params[:event_date].values.first.empty?
       @event.date = ""
     else
-      @event.date = DateTime.parse("#{date}T#{time[0]}:#{time[1]}")
+      @event.date = Time.parse("#{date}T#{time[0]}:#{time[1]}")
     end
 
     authorize @event
