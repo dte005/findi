@@ -12,4 +12,8 @@ class InvitePolicy < ApplicationPolicy
   def update?
     record.email == user.email
   end
+
+  def destroy?
+    true
+  end
 end

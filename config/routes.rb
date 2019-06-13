@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :suggestions, only: %i[edit destroy update] do
     resources :votes, only: %i[create]
   end
-  resources :invites, only: %i[edit update]
+  resources :invites, only: %i[edit update destroy]
   resources :events do
     resources :suggestions, only: %i[create]
     resources :invites, only: %i[create]

@@ -20,8 +20,15 @@
                 <% end %>
               </div>
               <div>
-                <%= link_to event_path(event), method: :delete, data: { confirm: "Are you sure you want to delete it?" } do %>
-                <i class="far fa-trash-alt" style="color:#FF708A; margin-right:8px;"></i>
+                <% if event.user == current_user %>
+                  <%= link_to event_path(event), method: :delete, data: { confirm: "Are you sure you want to delete it?" } do %>
+                  <i class="far fa-trash-alt" style="color:#FF708A; margin-right:8px;"></i>
+                  <% end %>
+                <% else %>
+                  <% invite = current_user.invites.find_by(event: event)%>
+                  <%= link_to invite_path(invite.id), method: :delete, data: {confirm: "Are you sure you want to delete your invitation?"} do %>
+                    <i class="far fa-trash-alt" style="color:#FF708A; margin-right:8px;"></i>
+                  <% end %>
                 <% end %>
               </div>
           </div>

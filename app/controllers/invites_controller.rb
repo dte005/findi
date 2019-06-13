@@ -1,6 +1,6 @@
 class InvitesController < ApplicationController
   before_action :invite_params, only: %i[create]
-  before_action :find_event, except: %i[update]
+  before_action :find_event, except: %i[update destroy]
 
   def create
     @invite = Invite.new(invite_params)
@@ -25,6 +25,19 @@ class InvitesController < ApplicationController
     if @invite.save
       redirect_to event_path(@invite.event)
     else
+      redirect_to events_path
+    end
+  end
+
+
+  def destroy
+    @invite = Invite.find(params[:id])
+    authorize @invite
+    if @invite.destroy
+      redirect_to events_path
+    else
+      raise
+      flash[:alert] = @invite.errors.values.flatten.first
       redirect_to events_path
     end
   end
