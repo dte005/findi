@@ -31,7 +31,7 @@
               <% @confirmed.first(3).each do |accept| %>
                 <span data-toggle="tooltip" data-placement="top" title="<%= accept.user.email %>"><%= cl_image_tag accept.user.photo, class: "avatar_details" %></span>
               <% end %>
-              <a href="#" data-toggle="modal" data-target="#friendsConfirmedModal" style="text-decoration:none;"><strong><% unless @confirmed.count - 3 < 0 %> ...e mais <%= @confirmed.count - 3 %><% end %></strong></a>
+              <a href="#" data-toggle="modal" data-target="#friendsConfirmedModal" style="text-decoration:none;"><strong><% unless @confirmed.count - 3 <= 0 %> ...e mais <%= @confirmed.count - 3 %><% end %></strong></a>
             </div>
             <div class="mt-1 mb-4">
               <article><%= @event.description %></article>
