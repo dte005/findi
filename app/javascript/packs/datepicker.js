@@ -7,16 +7,13 @@ const datepicker = () => {
   days.forEach((day) => {
     day.addEventListener('click', (event) => {
       const dateTime = event.currentTarget.querySelector("#calendar-datetime");
-      dayInput.value = formattedDate(dateTime.value);
+      dayInput.value = formattedDate(new Date(`${dateTime.value} 00:00`));
       dayHiddenInput.value = dateTime.value;
-      // console.log(getFormattedDate(dateTime.value));
     });
   });
 
-  const formattedDate = (d = new Date) => {
-    console.log(d);
+  const formattedDate = (d) => {
     let month = String(d.getMonth() + 1);
-    console.log(month);
     let day = String(d.getDate());
     const year = String(d.getFullYear());
 
@@ -24,23 +21,6 @@ const datepicker = () => {
     if (day.length < 2) day = '0' + day;
 
     return `${day}/${month}/${year}`;
-  }
-
-  function formatDate(date){
-    var date = new Date(),
-        day  = data.getDate().toString(),
-        dayF = (day.length == 1) ? '0'+day : day,
-        month  = (data.getMonth()+1).toString(),
-        monthF = (month.length == 1) ? '0'+month : month,
-        yearF = data.getFullYear();
-    return dayF+"/"+monthF+"/"+yearF;
-  }
-
-  function getFormattedDate(todayTime = new Date) {
-      var month = format(todayTime .getMonth() + 1);
-      var day = format(todayTime .getDate());
-      var year = format(todayTime .getFullYear());
-      return month + "/" + day + "/" + year;
   }
 
   // modalLink.addEventListener('click', (event) => {
