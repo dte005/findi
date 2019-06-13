@@ -39,7 +39,7 @@
             </div>
             <div class="data-location">
               <div class="d-flex flex-row mr-3 align-items-center mr-4" id="data-location-space">
-                <div class="mr-3"><i class="fas fa-calendar-check" style="color:#5c005c; font-size:30px;"></i></div><div style="color:#FF708A;"><strong><%= @event.date.strftime("%a, %d %b %Y at %l:%M %p")%></strong></div>
+                <div class="mr-3"><i class="fas fa-calendar-check" style="color:#5c005c; font-size:30px;"></i></div><div style="color:#FF708A;"><strong><%= l @event.date, format: "%a, %d %b %Y at %l:%M %p" %></strong></div>
               </div>
               <div class="d-flex flex-row mr-3 align-items-center" id="selected-suggestion" data-toggle="modal" data-target="#mapModal">
                 <% unless @suggestion_selected.nil? %>
@@ -204,7 +204,7 @@
 
 <!-- Map Modal -->
 <div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabels" aria-hidden="true">
-  <div class="modal-dialog" role="document" >
+  <div class="modal-dialog" role="document">
     <div class="modal-content" style="">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabels" style="text-align: ">Local Map</h5>
@@ -218,8 +218,7 @@
             style="width: 100%;
             height: 100%;"
             data-markers="<%= @markers.to_json %>"
-            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-          >
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
       </div>
     </div>

@@ -7,10 +7,21 @@ const datepicker = () => {
   days.forEach((day) => {
     day.addEventListener('click', (event) => {
       const dateTime = event.currentTarget.querySelector("#calendar-datetime");
-      dayInput.value = dateTime.value;
+      dayInput.value = formattedDate(new Date(`${dateTime.value} 00:00`));
       dayHiddenInput.value = dateTime.value;
     });
   });
+
+  const formattedDate = (d) => {
+    let month = String(d.getMonth() + 1);
+    let day = String(d.getDate());
+    const year = String(d.getFullYear());
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return `${day}/${month}/${year}`;
+  }
 
   // modalLink.addEventListener('click', (event) => {
   //   console.log(event.currentTarget.dataset.date);
