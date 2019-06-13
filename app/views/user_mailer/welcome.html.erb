@@ -1,6 +1,11 @@
-<div style="display:flex; flex-direction: column; align-items:center; justify-content:center;">
-  <div><h1><p>Welcome to better days!</p></h1></div>
-  <div><article><p>Findi is a platform that has the objective to get your friends together at the same place!</p>
-  <p>Enjoy your life with your friends!</p></article></div>
-  <div><p><a href="https://findi-online.herokuapp.com/">Visit us again!</a></p></div>
-</div>
+<%= link_to "https://findi.fun/" do %>
+<%= image_tag('https://i.imgur.com/nnGefMH.png', height: '32') %>
+<% end %>
+
+<h1 style="color: #ce6a85; font-family: 'Montserrat', sans-serif;">Welcome to better days!</h1>
+
+  <div style="font-size: 15px;">
+    <p>Hello <%= @user.email %>,</p>
+    <p><strong>Findi</strong> is a platform that has the objective to get your friends together at the same place!</p>
+    <p><a href="https://findi.fun/users/sign_up/?email=<%=@email%>">Visit us</a> and enjoy your life with your friends!</p>
+  </div>

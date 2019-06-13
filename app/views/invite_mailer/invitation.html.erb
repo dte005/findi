@@ -1,7 +1,11 @@
-<h1>Invite#invitation</h1>
+<%= link_to "https://findi.fun/users/sign_up/?email=#{@email}" do %>
+<%= image_tag('https://i.imgur.com/nnGefMH.png', height: '32') %>
+<% end %>
 
-<p>
-  <p>Hello <%= @email %>,</p>
-  <p><%= @message %></p>
-  <p><a href="https://findi-online.herokuapp.com/users/sign_up/?email=<%=@email%>">Your friend wants your presence on a event! come and see!</a></p>
-</p>
+<h1 style="color: #ce6a85; font-family: 'Montserrat', sans-serif;">You were invited to an event</h1>
+
+  <div style="font-size: 15px;">
+    <p>Hello <%= @email %>,</p>
+    <p>Your friend <%= @user %> wants your presence on an event! <a href="https://findi.fun/users/sign_up/?email=<%=@email%>">Click here to see!</a></p>
+    <p><%= @message %></p>
+  </div>

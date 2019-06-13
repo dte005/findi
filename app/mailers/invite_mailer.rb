@@ -8,6 +8,7 @@ class InviteMailer < ApplicationMailer
   def invitation
     @email = params[:email]
     @message = params[:message]
+    @user = params[:user]
 
     mail to: @email
   end
