@@ -7,5 +7,4 @@ import { initMapbox } from './init_mapbox';
 
 initMapbox();
 
-
 datepicker();
